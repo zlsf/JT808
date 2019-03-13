@@ -4,7 +4,9 @@ package model;
 import java.util.HashMap;
 import java.util.Map;
 
+import Utils.JT808Constant;
 import message.InboundMessageHandler;
+import message.handler.TerminalHeartbeatReqHandler;
 
 /**
  * 消息工厂
@@ -30,23 +32,30 @@ public class MessageFactory {
 	/**
 	 * 产品表
 	 */
-	private Map<Integer, InboundMessageHandler> handlerMap = new HashMap<Integer, InboundMessageHandler>() {
+	private Map<Integer, Class<? extends InboundMessageHandler>> handlerMap = new HashMap<Integer, Class<? extends InboundMessageHandler>>() {
 
 		{
-
+			put(JT808Constant.MSG_ID_TERMINAL_HEARTBEAT_REQ, TerminalHeartbeatReqHandler.class);// 心跳
 		}
 	};
 
 	/**
-	 * 生产消息
+	 * 生产具体消息处理逻辑
 	 * @param messageId
 	 * @return
 	 */
 	public InboundMessageHandler buildMessage(int messageId) {
 		synchronized (this.locker) {
-			if (handlerMap.containsKey(messageId))
-				return handlerMap.get(messageId);
-			return null;
+			if (!handlerMap.containsKey(messageId))
+				return null;
+
+			Class<? extends InboundMessageHandler> clazz = handlerMap.get(messageId);
+			try {
+				InboundMessageHandler obj = clazz.newInstance();
+				return obj;
+			} catch (Exception e) {
+				return null;
+			}
 		}
 	}
 }
