@@ -1,4 +1,4 @@
-package com.haiyisoft.jt808.domain.model;
+package model.codec;
 
 /**
  * жу╤кв╒╡А╫А╧Ш

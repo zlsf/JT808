@@ -1,21 +1,24 @@
-package com.haiyisoft.jt808.netty.handler.codec.jt808;
+package message.handler;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import com.haiyisoft.jt808.application.TerminalManagerService;
-import com.haiyisoft.jt808.domain.model.TerminalRegister;
-import com.haiyisoft.jt808.domain.model.TerminalRegisterResult;
-import com.haiyisoft.jt808.netty.handler.Session;
-import com.haiyisoft.jt808.util.ByteArrayUtil;
+import Utils.ByteArrayUtil;
+import message.InboundMessageHandler;
+import model.Session;
+import model.codec.JT808Packet;
+import model.codec.TerminalRegister;
+import model.codec.TerminalRegisterResult;
+
 /**
  * 终端注册处理
+ * 
  * @author zlsf
  *
  */
 public class TerminalRegisterReqHandler implements InboundMessageHandler {
 
-    private TerminalManagerService terminalManagerService;
+    private static final Logger log = LoggerFactory.getLogger(TerminalRegisterReqHandler.class);
 
     public void handle(Session session, JT808Packet packetData) {
 	byte[] body = packetData.getMsgBodyBytes();
@@ -27,8 +30,9 @@ public class TerminalRegisterReqHandler implements InboundMessageHandler {
 	tr.setTerminalId(ByteArrayUtil.toString(ByteArrayUtil.copyOfRange(body, 29, 36)));
 	tr.setVehicleColor(ByteArrayUtil.getUnsignedByte(body, 36));
 	tr.setVehicleNo(ByteArrayUtil.toString(ByteArrayUtil.copyOfRange(body, 37, body.length)));
-	//注册
-	TerminalRegisterResult result = terminalManagerService.terminalRegister(tr);
+	// TODO :注册
+	log.info(tr.toString());
+	TerminalRegisterResult result = null;// 这里认证
 
 	TerminalRegisterRsp rsp = new TerminalRegisterRsp(packetData.getTerminalId());
 	rsp.setAckMsgNo(packetData.getMsgNo());

@@ -1,4 +1,4 @@
-package com.haiyisoft.jt808.domain.model;
+package model.codec;
 
 /**
  * ÖÕ¶Ë×¢²á
@@ -84,4 +84,12 @@ public class TerminalRegister {
 	this.vehicleNo = vehicleNo;
     }
 
+    @Override
+    public String toString() {
+	return "TerminalRegister [terminalPhone=" + terminalPhone + ", provinceCode=" + provinceCode + ", cityCode="
+		+ cityCode + ", producerId=" + producerId + ", terminalModel=" + terminalModel + ", terminalId="
+		+ terminalId + ", vehicleColor=" + vehicleColor + ", vehicleNo=" + vehicleNo + "]";
+    }
+
+    
 }
