@@ -7,6 +7,7 @@ import java.util.Map;
 import Utils.JT808Constant;
 import message.InboundMessageHandler;
 import message.handler.TerminalHeartbeatReqHandler;
+import message.handler.TerminalRegisterReqHandler;
 
 /**
  * 消息工厂
@@ -36,6 +37,9 @@ public class MessageFactory {
 
 		{
 			put(JT808Constant.MSG_ID_TERMINAL_HEARTBEAT_REQ, TerminalHeartbeatReqHandler.class);// 心跳
+			put(JT808Constant.MSG_ID_TERMINAL_REGISTER_REQ,TerminalRegisterReqHandler.class);//注册
+			put(JT808Constant.MSG_ID_TERMINAL_UNREGISTER_REQ,TerminalRegisterReqHandler.class);//反注册
+			put(JT808Constant.MSG_ID_TERMINAL_AUTH_REQ,TerminalRegisterReqHandler.class);//反注册
 		}
 	};
 
