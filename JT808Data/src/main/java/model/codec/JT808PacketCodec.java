@@ -80,6 +80,7 @@ public class JT808PacketCodec {
 
 	/**
 	 * 帧包 转换
+	 * 
 	 * @param data
 	 * @return
 	 */
@@ -114,6 +115,7 @@ public class JT808PacketCodec {
 
 	/**
 	 * 构造头部
+	 * 
 	 * @param data
 	 * @return
 	 */
@@ -132,6 +134,7 @@ public class JT808PacketCodec {
 
 	/**
 	 * 校验码
+	 * 
 	 * @param data
 	 * @param from
 	 * @param to
@@ -147,13 +150,29 @@ public class JT808PacketCodec {
 
 	/**
 	 * 消息编码
+	 * 
 	 * @param lmsg
 	 * @return
 	 */
 	public static List<JT808Packet> encodeMessage(OutboundMessage lmsg) {
 		byte[] msgBody = lmsg.getMsgBody();
-		int size = msgBody.length / JT808Constant.MAX_MSG_BODY_LENGTH + msgBody.length
-				% JT808Constant.MAX_MSG_BODY_LENGTH > 0 ? 1 : 0;
+		if (msgBody.length <= 0) {
+			JT808Packet pd = new JT808Packet();
+			List<JT808Packet> result = new ArrayList<>(1);
+			Header header = new Header(lmsg.getMsgId(), lmsg.getTerminalId());
+			header.setEncryptionType(0b000);
+			header.setSubpacket(false);
+			header.setReservedBit(0b00);
+			header.setSubpacketCount(0);
+			header.setSubpacketNo(1);
+			pd.setHeader(header);
+			pd.setMsgBodyBytes(new byte[0]);
+			result.add(pd);
+			return result;
+		}
+
+		int size = msgBody.length / JT808Constant.MAX_MSG_BODY_LENGTH
+				+ msgBody.length % JT808Constant.MAX_MSG_BODY_LENGTH > 0 ? 1 : 0;
 		List<JT808Packet> result = new ArrayList<>(size);
 		for (int i = 0; i < size; i++) {
 			JT808Packet pd = new JT808Packet();
