@@ -1,3 +1,4 @@
+
 package JT808Data;
 
 import io.netty.bootstrap.ServerBootstrap;
@@ -14,7 +15,11 @@ import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
+import message.AbstractOutboundMessage;
+import model.Session;
+import model.SessionManager;
 
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -23,7 +28,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import Utils.Constant;
-
 
 /**
  * 主服务控制器.
@@ -78,8 +82,8 @@ public final class DataServer implements Runnable {
 		return Singleton.singleton;
 	}
 
-
 	private static class Singleton {
+
 		private static DataServer singleton = new DataServer();
 	}
 
@@ -159,14 +163,12 @@ public final class DataServer implements Runnable {
 
 		@Override
 		protected void initChannel(SocketChannel channel) throws Exception {
-			channel.pipeline()
-					.addLast("logging", new LoggingHandler(LogLevel.TRACE))
+			channel.pipeline().addLast("logging", new LoggingHandler(LogLevel.TRACE))
 					.addLast("idle-handler", new IdleStateHandler(100, 100, 100))
 					// 周期读写，可认为是心跳
-					.addLast(
-							"frame-decoder",
-							new DelimiterBasedFrameDecoder(1024, Unpooled.copiedBuffer(new byte[] { 0x7e }), Unpooled
-									.copiedBuffer(new byte[] { 0x7e, 0x7e })))
+					.addLast("frame-decoder",
+							new DelimiterBasedFrameDecoder(1024, Unpooled.copiedBuffer(new byte[] { 0x7e }),
+									Unpooled.copiedBuffer(new byte[] { 0x7e, 0x7e })))
 					.addLast("808d2c-handler", new DataServiceHandler808());
 		}
 	};
@@ -175,15 +177,13 @@ public final class DataServer implements Runnable {
 
 		@Override
 		protected void initChannel(SocketChannel channel) throws Exception {
-			channel.pipeline()
-					.addLast("logging", new LoggingHandler(LogLevel.TRACE))
+			channel.pipeline().addLast("logging", new LoggingHandler(LogLevel.TRACE))
 					.addLast("idle-handler", new IdleStateHandler(100, 100, 100))
-					.addLast(
-							"frame-decoder",
-							new DelimiterBasedFrameDecoder(1024, Unpooled.copiedBuffer(new byte[] { 0x5b }), Unpooled
-									.copiedBuffer(new byte[] { 0x5d }), Unpooled
-									.copiedBuffer(new byte[] { 0x5d, 0x5b })))
-					.addLast("jt905C2C-handler",  new DataServiceHandler808());
+					.addLast("frame-decoder",
+							new DelimiterBasedFrameDecoder(1024, Unpooled.copiedBuffer(new byte[] { 0x5b }),
+									Unpooled.copiedBuffer(new byte[] { 0x5d }),
+									Unpooled.copiedBuffer(new byte[] { 0x5d, 0x5b })))
+					.addLast("jt905C2C-handler", new DataServiceHandler808());
 		}
 	};
 
@@ -205,6 +205,13 @@ public final class DataServer implements Runnable {
 			log.error("发送数据异常:{}", future.cause());
 			return false;
 		}
+	}
 
+	public void sendMessageToAllDevice(AbstractOutboundMessage message) {
+		Map<String, Session> sessions = SessionManager.getInstance().getSessionMap();
+		for (String key : sessions.keySet()) {
+		    Session session=sessions.get(key);
+		    session.sendMessage(message,true);
+		}
 	}
 }

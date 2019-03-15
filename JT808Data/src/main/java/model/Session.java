@@ -241,4 +241,10 @@ public class Session {
 		Session session = new Session(buildId(channel), channel);
 		return session;
 	}
+
+	
+	public Channel getChannel() {
+		return channel;
+	}
+	
 }

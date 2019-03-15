@@ -1,7 +1,7 @@
+
 package message;
 
 import model.codec.OutboundMessage;
-
 
 /**
  * Ó¦´ð
