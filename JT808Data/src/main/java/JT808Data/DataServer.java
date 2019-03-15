@@ -167,7 +167,7 @@ public final class DataServer implements Runnable {
 							"frame-decoder",
 							new DelimiterBasedFrameDecoder(1024, Unpooled.copiedBuffer(new byte[] { 0x7e }), Unpooled
 									.copiedBuffer(new byte[] { 0x7e, 0x7e })))
-					.addLast("808d2c-handler", dataServiceHandler);
+					.addLast("808d2c-handler", new DataServiceHandler808());
 		}
 	};
 	/** 通道初始化. */
@@ -183,7 +183,7 @@ public final class DataServer implements Runnable {
 							new DelimiterBasedFrameDecoder(1024, Unpooled.copiedBuffer(new byte[] { 0x5b }), Unpooled
 									.copiedBuffer(new byte[] { 0x5d }), Unpooled
 									.copiedBuffer(new byte[] { 0x5d, 0x5b })))
-					.addLast("jt905C2C-handler", dataServiceHandler);
+					.addLast("jt905C2C-handler",  new DataServiceHandler808());
 		}
 	};
 

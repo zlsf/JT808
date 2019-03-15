@@ -85,6 +85,7 @@ public class JT808PacketCodec {
 	 */
 	public static JT808Packet frameToPacket(byte[] data) {
 		try {
+			System.out.println(data);
 			JT808Packet pd = new JT808Packet();
 			Header header = parseHeaderFromBytes(data);
 			pd.setHeader(header);
@@ -106,7 +107,7 @@ public class JT808PacketCodec {
 			}
 			return pd;
 		} catch (Exception e) {
-			log.warn("build packet error", e);
+			log.warn("创建包错误", e);
 			return null;
 		}
 	}

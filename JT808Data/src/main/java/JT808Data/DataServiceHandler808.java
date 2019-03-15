@@ -30,15 +30,15 @@ public class DataServiceHandler808 extends SimpleChannelInboundHandler<ByteBuf> 
 	/** 日志. */
 	private final Logger log = LoggerFactory.getLogger(DataServiceHandler808.class);
 
-	/**  线程池. */
+	/** 线程池. */
 	private ExecutorService taskExecutor = Executors.newCachedThreadPool();
-	/**  消息处理机. */
+	/** 消息处理机. */
 	private MessageProcessService messageProcessService;
 
 	public DataServiceHandler808() {
 	}
 
-	/* 
+	/*
 	 * 链接成功
 	 */
 	@Override
@@ -101,11 +101,14 @@ public class DataServiceHandler808 extends SimpleChannelInboundHandler<ByteBuf> 
 
 	/**
 	 * 移除Session
+	 * 
 	 * @param sessionId
 	 * @return
 	 */
 	private Session removeSession(String sessionId) {
 		Session session = SessionManager.getInstance().getSession(sessionId);
+		if (session == null)
+			return null;
 		if (session.isAuthenticated()) {
 			SessionManager.getInstance().removeTerminal(session.getTerminalId(), session.getId());
 		} else {
