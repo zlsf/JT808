@@ -19,13 +19,12 @@ public class Task {
 
 			@Override
 			public void run() {
-				TerminalLocationQueryReq req = new TerminalLocationQueryReq(null);
-				DataServer.getInstance().sendMessageToAllDevice(req);
+				DataServer.getInstance().sendMessageToAllDevice();
 			}
 		};
 		Timer timer = new Timer();
 		long delay = 0;
-		long intevalPeriod = 5 * 1000;
+		long intevalPeriod = 60 * 1000;
 		timer.scheduleAtFixedRate(task, delay, intevalPeriod);
 	}
 }

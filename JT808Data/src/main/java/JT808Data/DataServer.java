@@ -16,8 +16,10 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
 import message.AbstractOutboundMessage;
+import message.handler.TerminalLocationQueryReq;
 import model.Session;
 import model.SessionManager;
+import model.codec.TerminalId;
 
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -48,23 +50,22 @@ public final class DataServer implements Runnable {
 	/** 启停标记. */
 	private volatile boolean running = false;
 
-	/** 
-	 * 运行方式 
-	 * D2C 设备对中心 =0
-	 * C2C 中心对中心=1 
-	 *  */
+	/**
+	 * 运行方式 D2C 设备对中心 =0 C2C 中心对中心=1
+	 */
 	private static int model = Constant.Service_Model_D2C;
 
 	/** The data service handler. */
 	private DataServiceHandler808 dataServiceHandler;
 
-	/**  同步锁. */
+	/** 同步锁. */
 	private static Object locker = new Object();
 
 	/**
 	 * Sets the port.
 	 *
-	 * @param port the new port
+	 * @param port
+	 *            the new port
 	 */
 	public void setPort(int port) {
 		this.port = port;
@@ -126,7 +127,7 @@ public final class DataServer implements Runnable {
 	}
 
 	/**
-	 *  服务启动
+	 * 服务启动
 	 */
 	@Override
 	public void run() {
@@ -189,6 +190,7 @@ public final class DataServer implements Runnable {
 
 	/**
 	 * 统一发送数据
+	 * 
 	 * @param channel
 	 * @param data
 	 * @return
@@ -207,11 +209,18 @@ public final class DataServer implements Runnable {
 		}
 	}
 
-	public void sendMessageToAllDevice(AbstractOutboundMessage message) {
+	public void sendMessageToAllDevice() {
 		Map<String, Session> sessions = SessionManager.getInstance().getSessionMap();
 		for (String key : sessions.keySet()) {
-		    Session session=sessions.get(key);
-		    session.sendMessage(message,true);
+			try {
+				Session session = sessions.get(key);
+//				if (null == session.getTerminalId())
+//					continue;
+				TerminalLocationQueryReq req = new TerminalLocationQueryReq(TerminalId.createTerminalPhone("123456123456"));
+				session.sendMessage(req, true);
+			} catch (Exception e) {
+				log.error(e.toString());
+			}
 		}
 	}
 }

@@ -157,7 +157,8 @@ public class Session {
 	 *            是否需要确认应答(平台主动下发的，均要求确认应答)
 	 */
 	public void sendPacket(JT808Packet packet, boolean ack) {
-		ChannelFuture future = channel.writeAndFlush(Unpooled.copiedBuffer(new byte[] { 0x7e }, packet.toByteArray(),
+		byte[] bytes= packet.toByteArray();
+		ChannelFuture future = channel.writeAndFlush(Unpooled.copiedBuffer(new byte[] { 0x7e }, bytes,
 				new byte[] { 0x7e }));
 		if (!future.isSuccess()) {
 			log.error("发送数据出错:{}", future.cause());
