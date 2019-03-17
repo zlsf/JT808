@@ -6,6 +6,7 @@ import java.util.Map;
 
 import Utils.JT808Constant;
 import message.InboundMessageHandler;
+import message.handler.DriverInfoReportReqHandler;
 import message.handler.TerminalAuthenticationReqHandler;
 import message.handler.TerminalHeartbeatReqHandler;
 import message.handler.TerminalLocationQueryRspHandler;
@@ -46,6 +47,7 @@ public class MessageFactory {
 			put(JT808Constant.MSG_ID_TERMINAL_AUTH_REQ, TerminalAuthenticationReqHandler.class);// 鉴权
 			put(JT808Constant.MSG_ID_TERMINAL_LOCATION_QUERY_RSP, TerminalLocationQueryRspHandler.class);// 位置设备应答查询
 			put(JT808Constant.MSG_ID_TERMINAL_LOCATION_REPORT, TerminalLocationReportHandler.class);// 位置定期汇报
+			put(JT808Constant.MSG_ID_TERMINAL_DRIVER_REPORT_REQ, DriverInfoReportReqHandler.class);// 驾驶员汇报
 		}
 	};
 
