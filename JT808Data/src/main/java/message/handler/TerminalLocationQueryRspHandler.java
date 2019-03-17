@@ -13,6 +13,11 @@ import model.codec.GnssAttachment;
 import model.codec.GnssPosition;
 import model.codec.JT808Packet;
 
+/**
+ * 位置信息查询设备应答
+ * @author Administrator
+ *
+ */
 public class TerminalLocationQueryRspHandler implements InboundMessageHandler {
 
 	private static Logger log = LoggerFactory.getLogger(TerminalLocationQueryRspHandler.class);
@@ -21,8 +26,10 @@ public class TerminalLocationQueryRspHandler implements InboundMessageHandler {
 	public void handle(Session session, JT808Packet packetData) {
 		byte[] msgBody = packetData.getMsgBodyBytes();
 		int ackMsgNo = ByteArrayUtil.getUnsignedShort(msgBody, 0);
+		// 构建gps信息
 		GnssPosition position = GnssPosition.restore(packetData.getTerminalId().toString(),
 				ByteArrayUtil.copyOfRange(msgBody, 2, 30));
+		// 附加信息
 		if (msgBody.length > 30) {
 			List<GnssAttachment> attachments = GnssAttachment
 					.restoreAttachments(ByteArrayUtil.copyOfRange(msgBody, 30, msgBody.length));

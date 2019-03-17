@@ -28,6 +28,7 @@ public class TerminalAuthenticationReqHandler implements InboundMessageHandler {
 	log.info(auth.toString());
 
 	int result = 0x00;// TODO： 这里鉴权,模拟下鉴权成功
+	
 	if (result == JT808Constant.GENERAL_RSP_RESULT_SUCCESS) {
 	    session.setTerminalId(packetData.getTerminalId());
 	    session.setAuthenticated(true);

@@ -6,8 +6,12 @@ import java.util.Map;
 
 import Utils.JT808Constant;
 import message.InboundMessageHandler;
+import message.handler.TerminalAuthenticationReqHandler;
 import message.handler.TerminalHeartbeatReqHandler;
+import message.handler.TerminalLocationQueryRspHandler;
+import message.handler.TerminalLocationReportHandler;
 import message.handler.TerminalRegisterReqHandler;
+import message.handler.TerminalUnregisterReqHandler;
 
 /**
  * 消息工厂
@@ -37,9 +41,11 @@ public class MessageFactory {
 
 		{
 			put(JT808Constant.MSG_ID_TERMINAL_HEARTBEAT_REQ, TerminalHeartbeatReqHandler.class);// 心跳
-			put(JT808Constant.MSG_ID_TERMINAL_REGISTER_REQ,TerminalRegisterReqHandler.class);//注册
-			put(JT808Constant.MSG_ID_TERMINAL_UNREGISTER_REQ,TerminalRegisterReqHandler.class);//反注册
-			put(JT808Constant.MSG_ID_TERMINAL_AUTH_REQ,TerminalRegisterReqHandler.class);//反注册
+			put(JT808Constant.MSG_ID_TERMINAL_REGISTER_REQ, TerminalRegisterReqHandler.class);// 注册
+			put(JT808Constant.MSG_ID_TERMINAL_UNREGISTER_REQ, TerminalUnregisterReqHandler.class);// 注销
+			put(JT808Constant.MSG_ID_TERMINAL_AUTH_REQ, TerminalAuthenticationReqHandler.class);// 鉴权
+			put(JT808Constant.MSG_ID_TERMINAL_LOCATION_QUERY_RSP, TerminalLocationQueryRspHandler.class);// 位置设备应答查询
+			put(JT808Constant.MSG_ID_TERMINAL_LOCATION_REPORT, TerminalLocationReportHandler.class);// 位置定期汇报
 		}
 	};
 
