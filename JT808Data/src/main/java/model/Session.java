@@ -162,7 +162,7 @@ public class Session {
 		ChannelFuture future = channel.writeAndFlush(Unpooled.copiedBuffer(new byte[] { 0x7e }, bytes,
 				new byte[] { 0x7e }));
 		if (!future.isSuccess()) {
-			log.error("发送数据出错:{}", future.cause());
+			//log.error("发送数据出错:{}", future.cause());
 		} else {
 			if (ack) {
 				alreadySentPacketMap.put(packet.getMsgNo(), packet);
