@@ -41,6 +41,7 @@ public class Session {
 	public Session(String id, Channel channel) {
 		this.id = id;
 		this.channel = channel;
+		//this.messageProcessService=new MessageProcessService();
 	}
 
 	public String getId() {

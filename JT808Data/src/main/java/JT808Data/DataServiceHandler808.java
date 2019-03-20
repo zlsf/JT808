@@ -36,6 +36,7 @@ public class DataServiceHandler808 extends SimpleChannelInboundHandler<ByteBuf> 
 	private MessageProcessService messageProcessService;
 
 	public DataServiceHandler808() {
+		this.messageProcessService=new MessageProcessService();
 	}
 
 	/*

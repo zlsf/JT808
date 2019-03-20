@@ -13,10 +13,10 @@ import Utils.BcdCodeUtil;
  */
 public class TerminalId {
 
-	private final byte[] id = new byte[6];
+	private  byte[] id = new byte[6];
 
 	public TerminalId(byte[] bcdBytes) {
-		Arrays.copyOf(bcdBytes, 6);
+		id=Arrays.copyOf(bcdBytes, 6);
 	}
 
 	public static TerminalId createTerminalPhone(String idString) {
