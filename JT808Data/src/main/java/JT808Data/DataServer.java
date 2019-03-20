@@ -178,7 +178,7 @@ public final class DataServer implements Runnable {
 
 		@Override
 		protected void initChannel(SocketChannel channel) throws Exception {
-			channel.pipeline().addLast("logging", new LoggingHandler(LogLevel.TRACE))
+			channel.pipeline().addLast("logging", new LoggingHandler(LogLevel.INFO))
 					.addLast("idle-handler", new IdleStateHandler(100, 100, 100))
 					.addLast("frame-decoder",
 							new DelimiterBasedFrameDecoder(1024, Unpooled.copiedBuffer(new byte[] { 0x5b }),
