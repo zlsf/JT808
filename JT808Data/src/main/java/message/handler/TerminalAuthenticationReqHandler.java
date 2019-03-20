@@ -21,7 +21,7 @@ import model.codec.TerminalId;
  */
 public class TerminalAuthenticationReqHandler implements InboundMessageHandler {
 
-	private static final Logger log = LoggerFactory.getLogger(TerminalHeartbeatReqHandler.class);
+	private static final Logger log = LoggerFactory.getLogger(TerminalAuthenticationReqHandler.class);
 
 	@Override
 	public void handle(Session session, JT808Packet packetData) {
@@ -36,7 +36,7 @@ public class TerminalAuthenticationReqHandler implements InboundMessageHandler {
 			session.setAuthenticated(true);
 			SessionManager.getInstance().addTerminal(packetData.getTerminalId(), session.getId());
 
-			log.error("鉴权成功。");
+			log.info("鉴权成功。");
 		}
 		// 应答
 		session.sendPlatformGeneralRsp(packetData.getTerminalId(), packetData.getMsgNo(), packetData.getMsgId(),

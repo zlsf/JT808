@@ -54,4 +54,11 @@ public class DriverInfo {
 		driverInfo.setExpiryDate(BcdCodeUtil.bcdToDate(ByteArrayUtil.copyOfRange(bytes, 22 + dl + ol, bytes.length)));
 		return driverInfo;
 	}
+
+	@Override
+	public String toString() {
+		return "DriverInfo [driverName=" + driverName + ", qualificationCode=" + qualificationCode + ", orgName="
+				+ orgName + ", expiryDate=" + expiryDate + "]";
+	}
+	
 }

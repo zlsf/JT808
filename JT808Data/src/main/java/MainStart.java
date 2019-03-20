@@ -15,7 +15,7 @@ public class MainStart {
 	public static void main(String[] args) {
 		log.info("程序启动......");
 		DataServer server = DataServer.getInstance();
-		server.setPort(8001); // 可以重新设置端口号，不设置默认8899
+		server.setPort(8003); // 可以重新设置端口号，不设置默认8899
 		DataServer.setModel(Constant.Service_Model_D2C); // 设备对中心
 
 //		log.info("定时轮训启动......");

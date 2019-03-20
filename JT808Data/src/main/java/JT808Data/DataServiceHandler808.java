@@ -88,7 +88,6 @@ public class DataServiceHandler808 extends SimpleChannelInboundHandler<ByteBuf> 
 			try {
 				// 2进制流构建消息包
 				log.info("构建包......");
-				System.out.println(bs);
 				// if (DataServer.getModel() == Constant.Service_Model_C2C) { }
 				if (DataServer.getModel() == Constant.Service_Model_D2C) {
 					JT808Packet packet = JT808PacketCodec.frameToPacket(JT808PacketCodec.unescape(bs));

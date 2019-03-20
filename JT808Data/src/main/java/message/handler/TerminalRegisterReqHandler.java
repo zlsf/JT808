@@ -22,6 +22,7 @@ public class TerminalRegisterReqHandler implements InboundMessageHandler {
 	private static final Logger log = LoggerFactory.getLogger(TerminalRegisterReqHandler.class);
 
 	public void handle(Session session, JT808Packet packetData) {
+		log.info("收到注册信息");
 		byte[] body = packetData.getMsgBodyBytes();
 		TerminalRegister tr = new TerminalRegister(packetData.getTerminalId().toString());
 		tr.setProvinceCode(ByteArrayUtil.getUnsignedShort(body, 0));
