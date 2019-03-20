@@ -3,6 +3,11 @@ package model.codec;
 
 import Utils.ByteArrayUtil;
 
+/**
+ * 报警附加信息
+ * @author Administrator
+ *
+ */
 public class PlaceInOutAlarmAttachment extends GnssAttachment {
 
 	private PlaceInOut placeInOut;

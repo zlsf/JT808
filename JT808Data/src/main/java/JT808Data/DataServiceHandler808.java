@@ -1,26 +1,23 @@
 
 package JT808Data;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.handler.timeout.IdleState;
-import io.netty.handler.timeout.IdleStateEvent;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import model.MessageProcessService;
-import model.Session;
-import model.SessionManager;
-import model.codec.JT808Packet;
-import model.codec.JT808PacketCodec;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import Utils.Constant;
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.handler.timeout.IdleState;
+import io.netty.handler.timeout.IdleStateEvent;
+import model.MessageProcessService;
+import model.Session;
+import model.SessionManager;
+import model.codec.JT808Packet;
+import model.codec.JT808PacketCodec;
 
 /**
  * 消息处理.
@@ -56,7 +53,7 @@ public class DataServiceHandler808 extends SimpleChannelInboundHandler<ByteBuf> 
 	@Override
 	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
 		Session session = removeSession(Session.buildId(ctx.channel()));
-		log.debug("inactive connection: {}", session);
+		log.debug("链接断开: {}", session);
 	}
 
 	/*
@@ -86,9 +83,9 @@ public class DataServiceHandler808 extends SimpleChannelInboundHandler<ByteBuf> 
 
 		taskExecutor.execute(() -> {
 			try {
+				// if (DataServer.getModel() == Constant.Service_Model_C2C) { }
 				// 2进制流构建消息包
 				log.info("构建包......");
-				// if (DataServer.getModel() == Constant.Service_Model_C2C) { }
 				if (DataServer.getModel() == Constant.Service_Model_D2C) {
 					JT808Packet packet = JT808PacketCodec.frameToPacket(JT808PacketCodec.unescape(bs));
 					if (packet != null) {

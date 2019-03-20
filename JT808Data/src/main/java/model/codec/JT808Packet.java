@@ -1,10 +1,15 @@
-package model.codec;
 
+package model.codec;
 
 import java.nio.ByteBuffer;
 
 import Utils.ByteArrayUtil;
 
+/**
+ * 808的包协议
+ * @author Administrator
+ *
+ */
 public class JT808Packet {
 
 	private Header header;
@@ -79,6 +84,7 @@ public class JT808Packet {
 	}
 
 	public static class Header {
+
 		private int msgId;
 		private int msgBodyLength;
 		private int encryptionType;

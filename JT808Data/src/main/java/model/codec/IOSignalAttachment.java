@@ -3,6 +3,11 @@ package model.codec;
 
 import Utils.ByteArrayUtil;
 
+/**
+ * ∏Ωº”–≈œ¢
+ * @author Administrator
+ *
+ */
 public class IOSignalAttachment extends GnssAttachment {
 
 	private IOSignal ioSignal;

@@ -1,4 +1,11 @@
+
 package model.codec;
+
+/**
+ * ∏Ωº”–≈œ¢
+ * @author Administrator
+ *
+ */
 public class NumberAttachment extends GnssAttachment {
 
 	private final int byteLength;

@@ -5,7 +5,7 @@ import model.Session;
 import model.codec.JT808Packet;
 
 /**
- * 消息处理
+ * 入栈消息处理
  */
 public interface InboundMessageHandler {
 

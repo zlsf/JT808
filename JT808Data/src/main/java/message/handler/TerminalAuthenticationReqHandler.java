@@ -39,8 +39,7 @@ public class TerminalAuthenticationReqHandler implements InboundMessageHandler {
 			log.info("鉴权成功。");
 		}
 		// 应答
-		session.sendPlatformGeneralRsp(packetData.getTerminalId(), packetData.getMsgNo(), packetData.getMsgId(),
-				result);
+		session.sendPlatformGeneralRsp(packetData.getTerminalId(), packetData.getMsgNo(), packetData.getMsgId(),result);
 		// 鉴权完成以后询问驾驶员信息
 		askDriverInfo(session, packetData.getTerminalId());
 

@@ -1,6 +1,15 @@
 
 package JT808Data;
 
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import Utils.Constant;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
@@ -15,24 +24,14 @@ import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
-import message.AbstractOutboundMessage;
 import message.handler.TerminalLocationQueryReq;
 import model.Session;
 import model.SessionManager;
 import model.codec.TerminalId;
 
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import Utils.Constant;
-
 /**
  * 主服务控制器.
+ * 主要负责启动服务端程序
  */
 public final class DataServer implements Runnable {
 
@@ -214,9 +213,10 @@ public final class DataServer implements Runnable {
 		for (String key : sessions.keySet()) {
 			try {
 				Session session = sessions.get(key);
-//				if (null == session.getTerminalId())
-//					continue;
-				TerminalLocationQueryReq req = new TerminalLocationQueryReq(TerminalId.createTerminalPhone("123456123456"));
+				// if (null == session.getTerminalId())
+				// continue;
+				TerminalLocationQueryReq req = new TerminalLocationQueryReq(
+						TerminalId.createTerminalPhone("123456123456"));
 				session.sendMessage(req, true);
 			} catch (Exception e) {
 				log.error(e.toString());

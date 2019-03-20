@@ -3,7 +3,7 @@ package model.codec;
 
 
 /**
- * The Interface OutboundMessage.
+ * 出站信息接口
  */
 public interface OutboundMessage {
 

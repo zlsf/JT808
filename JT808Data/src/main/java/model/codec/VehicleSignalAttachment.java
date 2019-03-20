@@ -1,7 +1,13 @@
+
 package model.codec;
 
 import Utils.ByteArrayUtil;
 
+/**
+ * 车辆附加信息
+ * @author Administrator
+ *
+ */
 public class VehicleSignalAttachment extends GnssAttachment {
 
 	private VehicleSignal vehicleSignal;

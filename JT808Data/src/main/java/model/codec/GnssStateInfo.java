@@ -2,7 +2,7 @@ package model.codec;
 /**
  * 位置状态标志位
  * 
- * @author cuillgln
+ * @author 
  *
  */
 public class GnssStateInfo {

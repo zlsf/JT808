@@ -5,6 +5,11 @@ import java.util.Date;
 import Utils.BcdCodeUtil;
 import Utils.ByteArrayUtil;
 
+/**
+ * º› ª‘±–≈œ¢
+ * @author Administrator
+ *
+ */
 public class DriverInfo {
 
 	private String driverName;

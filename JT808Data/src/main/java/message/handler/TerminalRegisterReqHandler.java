@@ -12,7 +12,7 @@ import model.codec.TerminalRegister;
 import model.codec.TerminalRegisterResult;
 
 /**
- * 终端注册处理
+ * 终端注册处理 其中包含了车辆信息
  * 
  * @author zlsf
  *

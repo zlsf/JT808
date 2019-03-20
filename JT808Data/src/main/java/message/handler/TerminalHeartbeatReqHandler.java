@@ -1,9 +1,6 @@
 
 package message.handler;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import Utils.JT808Constant;
 import message.InboundMessageHandler;
 import model.Session;

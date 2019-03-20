@@ -13,6 +13,11 @@ import model.Session;
 import model.codec.DriverInfo;
 import model.codec.JT808Packet;
 
+/**
+ * 解析驾驶员信息
+ * @author Administrator
+ *
+ */
 public class DriverInfoReportReqHandler implements InboundMessageHandler {
 
 	private static Logger log = LoggerFactory.getLogger(DriverInfoReportReqHandler.class);

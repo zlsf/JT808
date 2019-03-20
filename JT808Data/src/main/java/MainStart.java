@@ -3,8 +3,12 @@ import org.slf4j.LoggerFactory;
 
 import JT808Data.DataServer;
 import Utils.Constant;
-import model.Task;
 
+/**
+ * 程序入口文件
+ * @author Administrator
+ *
+ */
 public class MainStart {
 
 	/**
@@ -18,9 +22,11 @@ public class MainStart {
 		server.setPort(8003); // 可以重新设置端口号，不设置默认8899
 		DataServer.setModel(Constant.Service_Model_D2C); // 设备对中心
 
-//		log.info("定时轮训启动......");
-//		Task task = new Task();
-//		task.doTask();
+		// 某些定时轮训的口--废弃不用，因为位置信息定时上报
+
+		// log.info("定时轮训启动......");
+		// Task task = new Task();
+		// task.doTask();
 		server.run();
 		log.debug("程序 退出......");
 	}

@@ -7,7 +7,7 @@ import message.PlatformReqMessage;
 import model.codec.TerminalId;
 
 /**
- * 位置查询
+ * 位置查询 基本永不上，如果需要手动查询的时候可以向设备发送
  * @author Administrator
  *
  */
@@ -19,7 +19,7 @@ public class TerminalLocationQueryReq extends AbstractOutboundMessage implements
 
 	@Override
 	public byte[] getMsgBody() {
-		//协议里body信息为空
+		// 协议里body信息为空
 		return new byte[0];
 	}
 }
