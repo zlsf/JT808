@@ -86,7 +86,6 @@ public class JT808PacketCodec {
 	 */
 	public static JT808Packet frameToPacket(byte[] data) {
 		try {
-			System.out.println(data);
 			JT808Packet pd = new JT808Packet();
 			Header header = parseHeaderFromBytes(data);
 			pd.setHeader(header);
@@ -99,8 +98,8 @@ public class JT808PacketCodec {
 			pd.setChecksum(data[data.length - 1] & 0xff);
 
 			// 校验
-			if (header.getMsgBodyLength() != data.length) {
-				log.warn("消息长度与实际长度不符{}!={}", header.getMsgBodyLength(), data.length);
+			if (header.getMsgBodyLength() != bodyBytes.length) {
+				log.warn("消息长度与实际长度不符{}!={}", header.getMsgBodyLength(), bodyBytes.length);
 			}
 			int calChecksum = calculateChecksum(data, 0, data.length - 1);
 			if (calChecksum != pd.getChecksum()) {

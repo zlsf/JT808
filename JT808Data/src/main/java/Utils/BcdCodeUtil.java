@@ -18,7 +18,8 @@ public final class BcdCodeUtil {
 	public static String bcdToString(byte[] bcdBytes) {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < bcdBytes.length; i++) {
-			sb.append(bcdToInteger(bcdBytes[i]));
+			String str = String.format("%02d", bcdToInteger(bcdBytes[i]));
+			sb.append(str);
 		}
 		return sb.toString();
 	}
