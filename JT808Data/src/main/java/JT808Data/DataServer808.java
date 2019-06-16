@@ -9,6 +9,10 @@ import java.util.concurrent.Future;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import JT808Data.message.handler.TerminalLocationQueryReq;
+import JT808Data.model.Session;
+import JT808Data.model.SessionManager;
+import JT808Data.model.codec.TerminalId;
 import Utils.Constant;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.Unpooled;
@@ -24,19 +28,15 @@ import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
-import message.handler.TerminalLocationQueryReq;
-import model.Session;
-import model.SessionManager;
-import model.codec.TerminalId;
 
 /**
  * 主服务控制器.
  * 主要负责启动服务端程序
  */
-public final class DataServer implements Runnable {
+public final class DataServer808 implements Runnable {
 
 	/** 日志. */
-	private Logger log = LoggerFactory.getLogger(DataServer.class);
+	private Logger log = LoggerFactory.getLogger(DataServer808.class);
 	/** 线程池. */
 	private ExecutorService serverExecutor = Executors.newSingleThreadExecutor();
 
@@ -71,26 +71,26 @@ public final class DataServer implements Runnable {
 	}
 
 	public static int getModel() {
-		return DataServer.model;
+		return DataServer808.model;
 	}
 
 	public static void setModel(int model) {
-		DataServer.model = model;
+		DataServer808.model = model;
 	}
 
-	public static DataServer getInstance() {
+	public static DataServer808 getInstance() {
 		return Singleton.singleton;
 	}
 
 	private static class Singleton {
 
-		private static DataServer singleton = new DataServer();
+		private static DataServer808 singleton = new DataServer808();
 	}
 
 	/**
 	 * 处理机.
 	 */
-	private DataServer() {
+	private DataServer808() {
 		dataServiceHandler = new DataServiceHandler808();
 	}
 
@@ -122,7 +122,7 @@ public final class DataServer implements Runnable {
 			future = null;
 			this.running = false;
 		}
-		log.info("启动服务  成功......");
+		log.info("停止服务  成功......");
 	}
 
 	/**
