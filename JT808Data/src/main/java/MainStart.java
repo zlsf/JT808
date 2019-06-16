@@ -1,7 +1,7 @@
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import JT808Data.DataServer;
+import JT808Data.DataServer808;
 import Utils.Constant;
 
 /**
@@ -18,9 +18,9 @@ public class MainStart {
 
 	public static void main(String[] args) {
 		log.info("程序启动......");
-		DataServer server = DataServer.getInstance();
+		DataServer808 server = DataServer808.getInstance();
 		server.setPort(8003); // 可以重新设置端口号，不设置默认8899
-		DataServer.setModel(Constant.Service_Model_D2C); // 设备对中心
+		DataServer808.setModel(Constant.Service_Model_D2C); // 设备对中心
 
 		// 某些定时轮训的口--废弃不用，因为位置信息定时上报
 

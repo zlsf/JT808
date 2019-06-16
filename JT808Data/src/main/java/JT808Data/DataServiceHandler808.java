@@ -7,17 +7,17 @@ import java.util.concurrent.Executors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import JT808Data.model.MessageProcessService;
+import JT808Data.model.Session;
+import JT808Data.model.SessionManager;
+import JT808Data.model.codec.JT808Packet;
+import JT808Data.model.codec.JT808PacketCodec;
 import Utils.Constant;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
-import model.MessageProcessService;
-import model.Session;
-import model.SessionManager;
-import model.codec.JT808Packet;
-import model.codec.JT808PacketCodec;
 
 /**
  * 消息处理.
@@ -33,7 +33,7 @@ public class DataServiceHandler808 extends SimpleChannelInboundHandler<ByteBuf> 
 	private MessageProcessService messageProcessService;
 
 	public DataServiceHandler808() {
-		this.messageProcessService=new MessageProcessService();
+		this.messageProcessService = new MessageProcessService();
 	}
 
 	/*
@@ -86,7 +86,7 @@ public class DataServiceHandler808 extends SimpleChannelInboundHandler<ByteBuf> 
 				// if (DataServer.getModel() == Constant.Service_Model_C2C) { }
 				// 2进制流构建消息包
 				log.info("构建包......");
-				if (DataServer.getModel() == Constant.Service_Model_D2C) {
+				if (DataServer808.getModel() == Constant.Service_Model_D2C) {
 					JT808Packet packet = JT808PacketCodec.frameToPacket(JT808PacketCodec.unescape(bs));
 					if (packet != null) {
 						Session session = SessionManager.getInstance().getSession(Session.buildId(ctx.channel()));
