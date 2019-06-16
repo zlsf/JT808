@@ -33,7 +33,7 @@ public class TerminalRegisterReqHandler implements InboundMessageHandler {
 		tr.setVehicleColor(ByteArrayUtil.getUnsignedByte(body, 36));
 		tr.setVehicleNo(ByteArrayUtil.toString(ByteArrayUtil.copyOfRange(body, 37, body.length)));
 		// TODO :注册
-		log.info(tr.toString());
+		log.info("注册信息"+tr.toString());
 		TerminalRegisterResult result = new TerminalRegisterResult(TerminalRegisterRsp.RESULT_SUCCESS, "qqqqq");// 这里认证
 
 		TerminalRegisterRsp rsp = new TerminalRegisterRsp(packetData.getTerminalId());
