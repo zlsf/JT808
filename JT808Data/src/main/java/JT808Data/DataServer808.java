@@ -213,8 +213,6 @@ public final class DataServer808 implements Runnable {
 		for (String key : sessions.keySet()) {
 			try {
 				Session session = sessions.get(key);
-				// if (null == session.getTerminalId())
-				// continue;
 				TerminalLocationQueryReq req = new TerminalLocationQueryReq(
 						TerminalId.createTerminalPhone("123456123456"));
 				session.sendMessage(req, true);
