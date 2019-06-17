@@ -1,4 +1,4 @@
-package JT809Data;
+package JT809Data.netty;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -6,6 +6,10 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import JT809Data.model.JT809Constant;
+import JT809Data.model.JT809Packet;
+import JT809Data.model.Session809;
+import JT809Data.netty.msghandler.UpConnectReq;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -29,7 +33,7 @@ import io.netty.handler.timeout.IdleStateHandler;
 public class NettyMainlinkClient implements MainlinkClient {
 	private static final Logger log = LoggerFactory.getLogger(NettyMainlinkClient.class);
 
-	private Session session;
+	private Session809 session;
 	private JT809PacketProcessor packetProcessor;
 	private JT809ConnectionManager connectionManager;
 
@@ -97,7 +101,7 @@ public class NettyMainlinkClient implements MainlinkClient {
 	}
 
 	@Override
-	public void setSession(Session session) {
+	public void setSession(Session809 session) {
 		this.session = session;
 	}
 

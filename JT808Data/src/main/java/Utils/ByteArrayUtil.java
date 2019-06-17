@@ -2,6 +2,7 @@
 package Utils;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
 import java.util.Arrays;
 
 // TODO: Auto-generated Javadoc
@@ -254,5 +255,22 @@ public final class ByteArrayUtil {
 		} catch (UnsupportedEncodingException e) {
 		}
 		return string;
+	}
+	
+	/**
+	 * 字符串转成定长字节 编码 GBK
+	 * 
+	 * @param string
+	 * @param fixedLength
+	 * @return
+	 */
+	public static byte[] toFixedBytes(String string, int fixedLength) {
+		ByteBuffer buffer = ByteBuffer.allocate(fixedLength);
+		try {
+			buffer.put(string.getBytes("GBK"));
+		} catch (UnsupportedEncodingException e) {
+		}
+
+		return buffer.array();
 	}
 }
