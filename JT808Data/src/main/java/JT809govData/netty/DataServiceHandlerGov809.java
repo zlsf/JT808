@@ -25,8 +25,7 @@ public class DataServiceHandlerGov809 extends SimpleChannelInboundHandler<ByteBu
 
 	/** 线程池. */
 	private ExecutorService taskExecutor = Executors.newCachedThreadPool();
-	/** 消息处理机. */
-	private MessageProcessService messageProcessService;
+
 
 	private NettyChannelConnection809Gov connection;
 
@@ -35,11 +34,9 @@ public class DataServiceHandlerGov809 extends SimpleChannelInboundHandler<ByteBu
 	private JT809ConnectionManagerGov connectionManager;
 
 	public DataServiceHandlerGov809() {
-		this.messageProcessService = new MessageProcessService();
 	}
 
 	public DataServiceHandlerGov809(Session809Gov session) {
-		this.messageProcessService = new MessageProcessService();
 		this.session = session;
 	}
 
