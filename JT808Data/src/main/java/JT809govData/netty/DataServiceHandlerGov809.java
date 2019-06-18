@@ -26,7 +26,6 @@ public class DataServiceHandlerGov809 extends SimpleChannelInboundHandler<ByteBu
 	/** Ïß³Ì³Ø. */
 	private ExecutorService taskExecutor = Executors.newCachedThreadPool();
 
-
 	private NettyChannelConnection809Gov connection;
 
 	private Session809Gov session;
@@ -79,12 +78,16 @@ public class DataServiceHandlerGov809 extends SimpleChannelInboundHandler<ByteBu
 		taskExecutor.execute(() -> {
 			try {
 				JT809GovPacket packet = session.getPacketDeser().deserialize(bs);
-				if (connection.isAuthenticated() || JT809Constant.UP_CONNECT_REQ == packet.getMsgId()) {
-					// packetProcessor.processPacket(connection, packet);
-				} else {
-					log.info("unauthenticated main link connection, ignore packet of 0x{} from {}",
-							Integer.toHexString(packet.getMsgId()), packet.getGnssPlatformId());
-				}
+				// if (connection.isAuthenticated() ||
+				// JT809Constant.UP_CONNECT_REQ == packet.getMsgId()) {
+				MessageProcessService packetProcessor = new MessageProcessService();
+				packetProcessor.processPacketData(connection, packet);
+				// } else {
+				// log.info("unauthenticated main link connection, ignore packet
+				// of 0x{} from {}",
+				// Integer.toHexString(packet.getMsgId()),
+				// packet.getGnssPlatformId());
+				// }
 			} catch (Exception e) {
 				log.error(e.toString());
 			}

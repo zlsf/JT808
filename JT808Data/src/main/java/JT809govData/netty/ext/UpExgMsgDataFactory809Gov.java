@@ -1,5 +1,5 @@
 
-package JT809govData.netty;
+package JT809govData.netty.ext;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,29 +13,29 @@ import JT809govData.netty.ext.UpExgMsgHandler809Gov;
  * @author Administrator
  *
  */
-public class MessageFactory809Gov {
+public class UpExgMsgDataFactory809Gov {
 
 	private final static Object locker = new Object();
 
-	private MessageFactory809Gov() {
+	private UpExgMsgDataFactory809Gov() {
 	}
 
-	public static MessageFactory809Gov getInstance() {
+	public static UpExgMsgDataFactory809Gov getInstance() {
 		return MessageFactory809GovInstance.INSTANCE;
 	}
 
 	private static class MessageFactory809GovInstance {
 
-		private static final MessageFactory809Gov INSTANCE = new MessageFactory809Gov();
+		private static final UpExgMsgDataFactory809Gov INSTANCE = new UpExgMsgDataFactory809Gov();
 	}
 
 	/**
 	 * ²úÆ·±í
 	 */
-	private Map<Integer, Class<? extends InboundMessageHandler809Gov>> handlerMap = new HashMap<Integer, Class<? extends InboundMessageHandler809Gov>>() {
+	private Map<Integer, Class<? extends UpExgMsgDataHandler809Gov>> handlerMap = new HashMap<Integer, Class<? extends UpExgMsgDataHandler809Gov>>() {
 
 		{
-			put(JT809Constant.UP_EXG_MSG, UpExgMsgHandler809Gov.class);
+			put(JT809Constant.UP_EXG_MSG_REAL_LOCATION, UpExgMsgRealLocationHandler809Gov.class);
 		}
 	};
 
@@ -44,14 +44,14 @@ public class MessageFactory809Gov {
 	 * @param messageId
 	 * @return
 	 */
-	public InboundMessageHandler809Gov buildMessage(int messageId) {
+	public UpExgMsgDataHandler809Gov buildMessage(int messageId) {
 		synchronized (this.locker) {
 			if (!handlerMap.containsKey(messageId))
 				return null;
 
-			Class<? extends InboundMessageHandler809Gov> clazz = handlerMap.get(messageId);
+			Class<? extends UpExgMsgDataHandler809Gov> clazz = handlerMap.get(messageId);
 			try {
-				InboundMessageHandler809Gov obj = clazz.newInstance();
+				UpExgMsgDataHandler809Gov obj = clazz.newInstance();
 				return obj;
 			} catch (Exception e) {
 				return null;
