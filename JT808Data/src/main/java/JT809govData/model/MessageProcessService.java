@@ -4,6 +4,8 @@ package JT809govData.model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import JT809govData.netty.MessageFactory809Gov;
+
 
 
 /**
@@ -26,9 +28,9 @@ public class MessageProcessService {
 	 * @param session the session
 	 * @param packetData the packet data
 	 */
-	public void processPacketData(Session session, JT808Packet packetData) {
+	public void processPacketData(Connection809Gov session, JT809GovPacket packetData) {
 		int msgId = packetData.getMsgId();
-		InboundMessageHandler809Gov message = MessageFactory.getInstance().buildMessage(msgId);
+		InboundMessageHandler809Gov message = MessageFactory809Gov.getInstance().buildMessage(msgId);
 		if (null == message)
 			log.info("Œ¥ µœ÷0x{}", Integer.toHexString(msgId));
 		try {

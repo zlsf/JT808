@@ -5,6 +5,8 @@ import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 
+import io.netty.buffer.ByteBufUtil;
+
 // TODO: Auto-generated Javadoc
 /**
  * π§æﬂ¿‡.
@@ -272,5 +274,9 @@ public final class ByteArrayUtil {
 		}
 
 		return buffer.array();
+	}
+	
+	public static String hexDump(byte[] bytes) {
+		return ByteBufUtil.hexDump(bytes);
 	}
 }

@@ -4,6 +4,7 @@ package JT809govData.netty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import JT809govData.model.Connection809Gov;
 import JT809govData.model.InboundMessageHandler809Gov;
 import JT809govData.model.JT809GovPacket;
 
@@ -29,7 +30,7 @@ public class MessageProcessService {
 	 * @param session the session
 	 * @param packetData the packet data
 	 */
-	public void processPacketData(Session session, JT809GovPacket packetData) {
+	public void processPacketData(Connection809Gov session, JT809GovPacket packetData) {
 		int msgId = packetData.getMsgId();
 		InboundMessageHandler809Gov message = MessageFactory809Gov.getInstance().buildMessage(msgId);
 		if (null == message)

@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import JT809govData.model.InboundMessageHandler809Gov;
-import Utils.JT808Constant;
 
 /**
  * 消息工厂

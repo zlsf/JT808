@@ -1,11 +1,13 @@
+
 package JT809govData.model;
 
 public class MsgHeader809Gov {
+
 	private long msgLength;
 	private long msgNo;
 	private int msgId;
 	private GnssPlatformIdGov809 gnssPlatformId;
-	private byte[] versionFlag;
+	private byte[] version;
 	private boolean encrypt;
 	private long encryptKey;
 
@@ -41,12 +43,12 @@ public class MsgHeader809Gov {
 		this.gnssPlatformId = gnssPlatformId;
 	}
 
-	public byte[] getVersionFlag() {
-		return versionFlag;
+	public byte[] getVersion() {
+		return version;
 	}
 
-	public void setVersionFlag(byte[] versionFlag) {
-		this.versionFlag = versionFlag;
+	public void setVersion(byte[] versionFlag) {
+		this.version = versionFlag;
 	}
 
 	public boolean isEncrypt() {
