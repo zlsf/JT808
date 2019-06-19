@@ -4,7 +4,10 @@ import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.kj.datacenter.core.ProtocolConstant;
+
 import customer.server.model.PacketData;
+import customer.server.process.msg.detail.HeartBitMessage;
 
 /**
  * 消息工厂
@@ -33,6 +36,7 @@ public class MessageFactory {
      */
     private Map<Integer, Class<? extends AbstractMessage>> dic = new HashMap<Integer, Class<? extends AbstractMessage>>() {
 	{
+	    put(ProtocolConstant.MSG_ID_UP_HEAR_BIT, HeartBitMessage.class);
 	}
     };
 

@@ -83,6 +83,7 @@ public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
 		// 2进制流构建消息包
 		log.info("构建包......");
 		PacketData packet = PacketCodec.frameToPacket(PacketCodec.unescape(bs));
+		packet.setChannel(ctx.channel());
 		if (packet != null) {
 		    this.processPacketData(packet);
 		}
