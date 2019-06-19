@@ -7,12 +7,12 @@ import java.util.concurrent.Executors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import Utils.Constant;
 import customer.server.model.PacketData;
 import customer.server.model.Session;
 import customer.server.model.SessionManager;
-import customer.server.process.MessageProcessService;
 import customer.server.process.PacketCodec;
+import customer.server.process.msg.AbstractMessage;
+import customer.server.process.msg.MessageFactory;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -29,11 +29,9 @@ public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
     /** 线程池. */
     private ExecutorService taskExecutor = Executors.newCachedThreadPool();
-    /** 消息处理机. */
-    private MessageProcessService messageProcessService;
 
     public DataServiceHandler() {
-	this.messageProcessService = new MessageProcessService();
+
     }
 
     /*
@@ -86,14 +84,22 @@ public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
 		log.info("构建包......");
 		PacketData packet = PacketCodec.frameToPacket(PacketCodec.unescape(bs));
 		if (packet != null) {
-		    Session session = SessionManager.getInstance().findBySessionId(ctx.channel().toString());
-		    messageProcessService.processPacketData(session, packet);
+		    this.processPacketData(packet);
 		}
 
 	    } catch (Exception e) {
 		log.error(e.toString());
 	    }
 	});
+    }
+
+    private void processPacketData(PacketData packetData) throws Exception {
+	int msgId = packetData.getMsgId();
+	AbstractMessage message = MessageFactory.getInstance().getCmd(msgId, packetData);
+	if (null != message) {
+	    message.setDeviceCode(packetData.getDeviceId().getId());
+	    message.dealMessage();
+	}
     }
 
     /**

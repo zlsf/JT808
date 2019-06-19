@@ -1,7 +1,10 @@
 package customer.server.process.msg;
 
+import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import java.util.Map;
+
+import customer.server.model.PacketData;
 
 /**
  * 消息工厂
@@ -28,29 +31,33 @@ public class MessageFactory {
     /**
      * 产品表
      */
-    private Map<Integer, Class<? extends InboundMessageHandler>> handlerMap = new HashMap<Integer, Class<? extends InboundMessageHandler>>() {
+    private Map<Integer, Class<? extends AbstractMessage>> dic = new HashMap<Integer, Class<? extends AbstractMessage>>() {
 	{
 	}
     };
 
     /**
-     * 生产具体消息处理逻辑
-     * 
-     * @param messageId
-     * @return
+     * Gets the cmd.
+     *
+     * @param <T>
+     *            the generic type
+     * @param msgFlag
+     *            the msg flag
+     * @param args
+     *            the args
+     * @return the cmd
      */
-    public InboundMessageHandler buildMessage(int messageId) {
-	synchronized (this.locker) {
-	    if (!handlerMap.containsKey(messageId))
-		return null;
+    public <T extends AbstractMessage> T getCmd(Integer msgFlag, Object... args) {
+	if (!dic.containsKey(msgFlag))
+	    return null;
 
-	    Class<? extends InboundMessageHandler> clazz = handlerMap.get(messageId);
-	    try {
-		InboundMessageHandler obj = clazz.newInstance();
-		return obj;
-	    } catch (Exception e) {
-		return null;
-	    }
+	try {
+	    Constructor cs = dic.get(msgFlag).getConstructor(PacketData.class);
+	    cs.setAccessible(true);
+	    T result = (T) cs.newInstance(args);
+	    return result;
+	} catch (Exception e) {
+	    throw new RuntimeException();
 	}
     }
 }
