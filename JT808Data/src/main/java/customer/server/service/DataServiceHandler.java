@@ -7,55 +7,43 @@ import java.util.concurrent.Executors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import customer.server.model.PacketData;
+import customer.server.model.PackData;
 import customer.server.model.Session;
 import customer.server.model.SessionManager;
-import customer.server.process.PacketCodec;
 import customer.server.process.msg.AbstractMessage;
 import customer.server.process.msg.MessageFactory;
+import customer.util.PacketCodec;
 import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 
-/**
- * 锟斤拷息锟斤拷锟斤拷.
- */
+@ChannelHandler.Sharable
 public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
-    /** 锟斤拷志. */
     private final Logger log = LoggerFactory.getLogger(DataServiceHandler.class);
 
-    /** 锟竭程筹拷. */
     private ExecutorService taskExecutor = Executors.newCachedThreadPool();
 
     public DataServiceHandler() {
 
     }
 
-    /*
-     * 锟斤拷锟接成癸拷
-     */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
 	Session session = Session.buildSession(ctx.channel());
 	SessionManager.getInstance().put(session.getId(), session);
-	log.debug("锟斤拷锟斤拷锟斤拷锟斤拷: {}", session);
+	log.debug("收到连接: {}", session);
     }
 
-    /*
-     * 锟斤拷锟接断匡拷锟斤拷时锟斤拷
-     */
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
 	Session session = removeSession(Session.buildId(ctx.channel()));
-	log.debug("锟斤拷锟接断匡拷: {}", session);
+	log.debug("断开连接: {}", session);
     }
 
-    /*
-     * 锟矫伙拷锟铰硷拷
-     */
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
 	if (!(evt instanceof IdleStateEvent))
@@ -80,11 +68,12 @@ public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
 	taskExecutor.execute(() -> {
 	    try {
-		// 2锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷息锟斤拷
-		log.info("锟斤拷锟斤拷锟斤拷......");
-		PacketData packet = PacketCodec.frameToPacket(PacketCodec.unescape(bs));
-		packet.setChannel(ctx.channel());
+		log.info("解析包......");
+		String json = new String(bs, "UTF-8");
+		log.info(json);
+		PackData packet = PacketCodec.convertToBaseMessageVO(json);
 		if (packet != null) {
+		    packet.setChannel(ctx.channel());
 		    this.processPacketData(packet);
 		}
 
@@ -94,12 +83,11 @@ public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
 	});
     }
 
-    private void processPacketData(PacketData packetData) throws Exception {
-	int msgId = packetData.getMsgId();
+    private void processPacketData(PackData packetData) throws Exception {
+	int msgId = packetData.getMessageId();
 	AbstractMessage message = MessageFactory.getInstance().getCmd(msgId, packetData);
 	if (null != message) {
-	    message.setDeviceCode(packetData.getDeviceId().getId());
-	    message.dealMessage();
+	    message.dealMsg();
 	}
     }
 

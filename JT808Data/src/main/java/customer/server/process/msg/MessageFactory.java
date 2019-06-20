@@ -4,9 +4,9 @@ import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.kj.datacenter.core.ProtocolConstant;
+import com.kj.datacenter.core.Constant;
 
-import customer.server.model.PacketData;
+import customer.server.model.PackData;
 import customer.server.process.msg.detail.HeartBitMessage;
 
 /**
@@ -36,7 +36,7 @@ public class MessageFactory {
      */
     private Map<Integer, Class<? extends AbstractMessage>> dic = new HashMap<Integer, Class<? extends AbstractMessage>>() {
 	{
-	    put(ProtocolConstant.MSG_ID_UP_HEAR_BIT, HeartBitMessage.class);
+	    put(Constant.Heart_bit, HeartBitMessage.class);
 	}
     };
 
@@ -56,7 +56,7 @@ public class MessageFactory {
 	    return null;
 
 	try {
-	    Constructor cs = dic.get(msgFlag).getConstructor(PacketData.class);
+	    Constructor cs = dic.get(msgFlag).getConstructor(PackData.class);
 	    cs.setAccessible(true);
 	    T result = (T) cs.newInstance(args);
 	    return result;

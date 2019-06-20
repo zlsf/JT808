@@ -29,9 +29,9 @@ public class SessionManager {
     }
 
     /** The stop map. */
-    private Map<DeviceId, String> deviceMap;
+    private Map<String, String> deviceMap;
 
-    public Map<DeviceId, String> getDeviceMap() {
+    public Map<String, String> getDeviceMap() {
 	return deviceMap;
     }
 
@@ -48,12 +48,12 @@ public class SessionManager {
      *
      * @return the all stop ids
      */
-    public Set<DeviceId> getAllStopIds() {
+    public Set<String> getAllDeviceIds() {
 	return this.deviceMap.keySet();
     }
 
     /**
-     * 锟角凤拷锟斤拷锟斤拷锟絊essionID
+     * 
      *
      * @param sessionId
      *            the session id
@@ -64,7 +64,7 @@ public class SessionManager {
     }
 
     /**
-     * 锟角凤拷锟斤拷锟斤拷锟絊ession
+     * 
      *
      * @param session
      *            the session
@@ -75,7 +75,7 @@ public class SessionManager {
     }
 
     /**
-     * 锟斤拷锟斤拷sessionID锟斤拷取 Session
+     * 根据ID获取session
      *
      * @param sessionId
      *            the session id
@@ -86,13 +86,13 @@ public class SessionManager {
     }
 
     /**
-     * 锟斤拷取站锟斤拷ID
+     * 根据deviceID获取Session
      *
      * @param stopId
      *            the stop id
      * @return the session
      */
-    public Session findByDeviceId(DeviceId deviceId) {
+    public Session findByDeviceId(String deviceId) {
 	String sessionId = this.deviceMap.get(deviceId);
 	if (sessionId == null)
 	    return null;
