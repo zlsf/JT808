@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * BCD¹¤¾ßÀà
+ * BCDå·¥å…·ç±»
  */
 public final class BcdCodeUtil {
 
@@ -67,7 +67,7 @@ public final class BcdCodeUtil {
 	}
 
 	/**
-	 * BCD[6] ×ªÊ±¼ä.
+	 * BCD[6] è½¬æ—¶é—´.
 	 *
 	 * @param bcdBytes the bcd bytes
 	 * @return the date

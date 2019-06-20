@@ -9,14 +9,14 @@ import io.netty.buffer.ByteBufUtil;
 
 // TODO: Auto-generated Javadoc
 /**
- * ¹¤¾ßÀà.
+ * å·¥å…·ç±».
  *
  * @author Administrator
  */
 public final class ByteArrayUtil {
 
 	/**
-	 * Êı×éÁ´½Ó.
+	 * æ•°ç»„é“¾æ¥.
 	 *
 	 * @param bs the bs
 	 * @return the byte[]
@@ -37,7 +37,7 @@ public final class ByteArrayUtil {
 
 	/**
 	 *  
-	 * ½«byte×ª»»ÎªÒ»¸ö³¤¶ÈÎª8µÄbyteÊı×é£¬Êı×éÃ¿¸öÖµ´ú±íbit.
+	 * å°†byteè½¬æ¢ä¸ºä¸€ä¸ªé•¿åº¦ä¸º8çš„byteæ•°ç»„ï¼Œæ•°ç»„æ¯ä¸ªå€¼ä»£è¡¨bit.
 	 *
 	 * @param b the b
 	 * @return the boolean array
@@ -67,10 +67,10 @@ public final class ByteArrayUtil {
 	}
 
 	/**
-	 * »ñÈ¡µÄÊı¾İ.
+	 * è·å–çš„æ•°æ®.
 	 *
 	 * @param num the num
-	 * @param index µ¹ÊıµÚÒ»Î»ÊÇÆğÊ¼Î»0
+	 * @param index å€’æ•°ç¬¬ä¸€ä½æ˜¯èµ·å§‹ä½0
 	 * @return the bit in int
 	 */
 	public static byte getBitInInt(int num, int index) {
@@ -78,7 +78,7 @@ public final class ByteArrayUtil {
 	}
 
 	/**
-	 * Çø¿é¿½±´
+	 * åŒºå—æ‹·è´
 	 *
 	 * @param memory the memory
 	 * @param from the from
@@ -90,7 +90,7 @@ public final class ByteArrayUtil {
 	}
 
 	/**
-	 * »ñÈ¡Ö¸¶¨Î»ÖÃµÄbyte
+	 * è·å–æŒ‡å®šä½ç½®çš„byte
 	 *
 	 * @param memory the memory
 	 * @param index the index
@@ -101,7 +101,7 @@ public final class ByteArrayUtil {
 	}
 
 	/**
-	 * »ñÈ¡ÎŞ·ûºÅµÄÎ»
+	 * è·å–æ— ç¬¦å·çš„ä½
 	 *
 	 * @param memory the memory
 	 * @param index the index
@@ -112,7 +112,7 @@ public final class ByteArrayUtil {
 	}
 
 	/**
-	 * Ö¸¶¨Î»ÖÃ»ñÈ¡short
+	 * æŒ‡å®šä½ç½®è·å–short
 	 *
 	 * @param memory the memory
 	 * @param index the index
@@ -123,7 +123,7 @@ public final class ByteArrayUtil {
 	}
 
 	/**
-	 * Ö¸¶¨Î»ÖÃ»ñÈ¡ÎŞ·ûºÅ short
+	 * æŒ‡å®šä½ç½®è·å–æ— ç¬¦å· short
 	 *
 	 * @param memory the memory
 	 * @param index the index
@@ -134,7 +134,7 @@ public final class ByteArrayUtil {
 	}
 
 	/**
-	 * Ğ¡¶Ë »ñÈ¡short
+	 * å°ç«¯ è·å–short
 	 *
 	 * @param memory the memory
 	 * @param index the index
@@ -167,7 +167,7 @@ public final class ByteArrayUtil {
 	}
 
 	/**
-	 * »ñÈ¡ÕûĞÎ
+	 * è·å–æ•´å½¢
 	 *
 	 * @param memory the memory
 	 * @param index the index
@@ -179,7 +179,7 @@ public final class ByteArrayUtil {
 	}
 
 	/**
-	 * ÎŞ·ûºÅÕûĞÎ
+	 * æ— ç¬¦å·æ•´å½¢
 	 *
 	 * @param memory the memory
 	 * @param index the index
@@ -191,7 +191,7 @@ public final class ByteArrayUtil {
 	}
 
 	/**
-	 * Ğ¡¶ËÕûĞÎ
+	 * å°ç«¯æ•´å½¢
 	 *
 	 * @param memory the memory
 	 * @param index the index
@@ -260,7 +260,7 @@ public final class ByteArrayUtil {
 	}
 	
 	/**
-	 * ×Ö·û´®×ª³É¶¨³¤×Ö½Ú ±àÂë GBK
+	 * å­—ç¬¦ä¸²è½¬æˆå®šé•¿å­—èŠ‚ ç¼–ç  GBK
 	 * 
 	 * @param string
 	 * @param fixedLength

@@ -10,7 +10,7 @@ import JT808Data.model.codec.JT808Packet;
 
 
 /**
- * ÖÕ¶Ë×¢Ïú
+ * ç»ˆç«¯æ³¨é”€
  * @author Administrator
  *
  */
@@ -19,7 +19,7 @@ public class TerminalUnregisterReqHandler implements InboundMessageHandler {
 	private static final Logger log = LoggerFactory.getLogger(TerminalHeartbeatReqHandler.class);
 
 	public void handle(Session session, JT808Packet packetData) {
-		// ÖÕ¶Ë×¢Ïú
+		// ç»ˆç«¯æ³¨é”€
 		int result = 0;
 		session.sendPlatformGeneralRsp(packetData.getTerminalId(), packetData.getMsgNo(), packetData.getMsgId(),
 				result);

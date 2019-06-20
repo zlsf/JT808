@@ -14,7 +14,7 @@ import Utils.ByteArrayUtil;
 import Utils.JT808Constant;
 
 /**
- * ¼øÈ¨
+ * é‰´æƒ
  * 
  * @author zlsf
  *
@@ -29,18 +29,18 @@ public class TerminalAuthenticationReqHandler implements InboundMessageHandler {
 		auth.setAuthenticationKey(ByteArrayUtil.toString(packetData.getMsgBodyBytes()));
 		log.info(auth.toString());
 
-		int result = 0x00;// TODO£º ÕâÀï¼øÈ¨,Ä£ÄâÏÂ¼øÈ¨³É¹¦ ¼øÈ¨ĞÅÏ¢´æ¿â
+		int result = 0x00;// TODOï¼š è¿™é‡Œé‰´æƒ,æ¨¡æ‹Ÿä¸‹é‰´æƒæˆåŠŸ é‰´æƒä¿¡æ¯å­˜åº“
 
 		if (result == JT808Constant.GENERAL_RSP_RESULT_SUCCESS) {
 			session.setTerminalId(packetData.getTerminalId());
 			session.setAuthenticated(true);
 			SessionManager.getInstance().addTerminal(packetData.getTerminalId(), session.getId());
 
-			log.info("¼øÈ¨³É¹¦¡£");
+			log.info("é‰´æƒæˆåŠŸã€‚");
 		}
-		// Ó¦´ğ
+		// åº”ç­”
 		session.sendPlatformGeneralRsp(packetData.getTerminalId(), packetData.getMsgNo(), packetData.getMsgId(),result);
-		// ¼øÈ¨Íê³ÉÒÔºóÑ¯ÎÊ¼İÊ»Ô±ĞÅÏ¢
+		// é‰´æƒå®Œæˆä»¥åè¯¢é—®é©¾é©¶å‘˜ä¿¡æ¯
 		askDriverInfo(session, packetData.getTerminalId());
 
 	}
@@ -48,11 +48,11 @@ public class TerminalAuthenticationReqHandler implements InboundMessageHandler {
 	private void askDriverInfo(Session session, TerminalId terminalId) {
 		try {
 			Thread.sleep(1000);
-			log.error("ÏÂ·¢Ñ¯ÎÊ¼İÊ»Ô±¡£");
+			log.error("ä¸‹å‘è¯¢é—®é©¾é©¶å‘˜ã€‚");
 			DriverInfoReportReq req = new DriverInfoReportReq(terminalId);
 			session.sendMessage(req, true);
 		} catch (InterruptedException e) {
-			log.error("ÏÂ·¢Ñ¯ÎÊ¼İÊ»Ô±ĞÅÏ¢´íÎó:{}", e);
+			log.error("ä¸‹å‘è¯¢é—®é©¾é©¶å‘˜ä¿¡æ¯é”™è¯¯:{}", e);
 		}
 	}
 

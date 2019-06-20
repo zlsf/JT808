@@ -4,7 +4,7 @@ package JT808Data.model.codec;
 import Utils.ByteArrayUtil;
 
 /**
- * 报警附加信息
+ * 鎶ヨ闄勫姞淇℃伅
  * @author Administrator
  *
  */

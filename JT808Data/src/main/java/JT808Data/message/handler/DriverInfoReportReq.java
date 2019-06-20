@@ -8,7 +8,7 @@ import Utils.JT808Constant;
 
 
 /**
- * ѯ�ʼ�ʻԱ��Ϣ
+ * 询问驾驶员信息
  * @author Administrator
  *
  */

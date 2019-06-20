@@ -15,7 +15,7 @@ import JT808Data.message.handler.TerminalUnregisterReqHandler;
 import Utils.JT808Constant;
 
 /**
- * ÏûÏ¢¹¤³§
+ * æ¶ˆæ¯å·¥å‚
  * @author Administrator
  *
  */
@@ -36,23 +36,23 @@ public class MessageFactory {
 	}
 
 	/**
-	 * ²úÆ·±í
+	 * äº§å“è¡¨
 	 */
 	private Map<Integer, Class<? extends InboundMessageHandler>> handlerMap = new HashMap<Integer, Class<? extends InboundMessageHandler>>() {
 
 		{
-			put(JT808Constant.MSG_ID_TERMINAL_HEARTBEAT_REQ, TerminalHeartbeatReqHandler.class);// ĞÄÌø
-			put(JT808Constant.MSG_ID_TERMINAL_REGISTER_REQ, TerminalRegisterReqHandler.class);// ×¢²á
-			put(JT808Constant.MSG_ID_TERMINAL_UNREGISTER_REQ, TerminalUnregisterReqHandler.class);// ×¢Ïú
-			put(JT808Constant.MSG_ID_TERMINAL_AUTH_REQ, TerminalAuthenticationReqHandler.class);// ¼øÈ¨
-			put(JT808Constant.MSG_ID_TERMINAL_LOCATION_QUERY_RSP, TerminalLocationQueryRspHandler.class);// Î»ÖÃÉè±¸Ó¦´ğ²éÑ¯
-			put(JT808Constant.MSG_ID_TERMINAL_LOCATION_REPORT, TerminalLocationReportHandler.class);// Î»ÖÃ¶¨ÆÚ»ã±¨
-			put(JT808Constant.MSG_ID_TERMINAL_DRIVER_REPORT_REQ, DriverInfoReportReqHandler.class);// ¼İÊ»Ô±»ã±¨
+			put(JT808Constant.MSG_ID_TERMINAL_HEARTBEAT_REQ, TerminalHeartbeatReqHandler.class);// å¿ƒè·³
+			put(JT808Constant.MSG_ID_TERMINAL_REGISTER_REQ, TerminalRegisterReqHandler.class);// æ³¨å†Œ
+			put(JT808Constant.MSG_ID_TERMINAL_UNREGISTER_REQ, TerminalUnregisterReqHandler.class);// æ³¨é”€
+			put(JT808Constant.MSG_ID_TERMINAL_AUTH_REQ, TerminalAuthenticationReqHandler.class);// é‰´æƒ
+			put(JT808Constant.MSG_ID_TERMINAL_LOCATION_QUERY_RSP, TerminalLocationQueryRspHandler.class);// ä½ç½®è®¾å¤‡åº”ç­”æŸ¥è¯¢
+			put(JT808Constant.MSG_ID_TERMINAL_LOCATION_REPORT, TerminalLocationReportHandler.class);// ä½ç½®å®šæœŸæ±‡æŠ¥
+			put(JT808Constant.MSG_ID_TERMINAL_DRIVER_REPORT_REQ, DriverInfoReportReqHandler.class);// é©¾é©¶å‘˜æ±‡æŠ¥
 		}
 	};
 
 	/**
-	 * Éú²ú¾ßÌåÏûÏ¢´¦ÀíÂß¼­
+	 * ç”Ÿäº§å…·ä½“æ¶ˆæ¯å¤„ç†é€»è¾‘
 	 * @param messageId
 	 * @return
 	 */

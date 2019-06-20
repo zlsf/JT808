@@ -34,9 +34,9 @@ public class Session {
 
 	private MessageProcessService messageProcessService;
 
-	private Map<Integer, JT808Packet> alreadySentPacketMap = new ConcurrentHashMap<>(); // ·¢ËÍÎ´È·ÈÏÏûÏ¢
-	private Map<Integer, JT808LargePacket> alreadySentLargePacketMap = new ConcurrentHashMap<>(); // ·¢ËÍÎ´È·ÈÏµÄ³¤ÏûÏ¢
-	private Map<MessageId, JT808LargePacket> receivedLargePacketMap = new ConcurrentHashMap<>(); // ½ÓÊÕµÄ³¤ÏûÏ¢
+	private Map<Integer, JT808Packet> alreadySentPacketMap = new ConcurrentHashMap<>(); // å‘é€æœªç¡®è®¤æ¶ˆæ¯
+	private Map<Integer, JT808LargePacket> alreadySentLargePacketMap = new ConcurrentHashMap<>(); // å‘é€æœªç¡®è®¤çš„é•¿æ¶ˆæ¯
+	private Map<MessageId, JT808LargePacket> receivedLargePacketMap = new ConcurrentHashMap<>(); // æ¥æ”¶çš„é•¿æ¶ˆæ¯
 
 	public Session(String id, Channel channel) {
 		this.id = id;
@@ -90,7 +90,7 @@ public class Session {
 	}
 
 	/**
-	 * ·¢ËÍÆ½Ì¨ÇëÇóÃüÁî
+	 * å‘é€å¹³å°è¯·æ±‚å‘½ä»¤
 	 * 
 	 * @param reqMessage
 	 */
@@ -99,7 +99,7 @@ public class Session {
 	}
 
 	/**
-	 * ·¢ËÍÆ½Ì¨È·ÈÏÏûÏ¢
+	 * å‘é€å¹³å°ç¡®è®¤æ¶ˆæ¯
 	 * 
 	 * @param ackMessage
 	 */
@@ -108,7 +108,7 @@ public class Session {
 	}
 
 	/**
-	 * ·¢ËÍÆ½Ì¨Í¨ÓÃÓ¦´ğ
+	 * å‘é€å¹³å°é€šç”¨åº”ç­”
 	 * 
 	 * @param terminalId
 	 * @param ackMsgNo
@@ -124,11 +124,11 @@ public class Session {
 	}
 
 	/**
-	 * ·¢ËÍÏûÏ¢
+	 * å‘é€æ¶ˆæ¯
 	 * 
 	 * @param message
 	 * @param ack
-	 *            ÊÇ·ñĞèÒªÈ·ÈÏÓ¦´ğ(Æ½Ì¨Ö÷¶¯ÏÂ·¢µÄ£¬¾ùÒªÇóÈ·ÈÏÓ¦´ğ)
+	 *            æ˜¯å¦éœ€è¦ç¡®è®¤åº”ç­”(å¹³å°ä¸»åŠ¨ä¸‹å‘çš„ï¼Œå‡è¦æ±‚ç¡®è®¤åº”ç­”)
 	 */
 	public void sendMessage(OutboundMessage message, boolean ack) {
 		List<JT808Packet> packets = JT808PacketCodec.encodeMessage(message);
@@ -151,18 +151,18 @@ public class Session {
 	}
 
 	/**
-	 * ÏÂ·¢Êı¾İ°ü
+	 * ä¸‹å‘æ•°æ®åŒ…
 	 * 
 	 * @param packet
 	 * @param ack
-	 *            ÊÇ·ñĞèÒªÈ·ÈÏÓ¦´ğ(Æ½Ì¨Ö÷¶¯ÏÂ·¢µÄ£¬¾ùÒªÇóÈ·ÈÏÓ¦´ğ)
+	 *            æ˜¯å¦éœ€è¦ç¡®è®¤åº”ç­”(å¹³å°ä¸»åŠ¨ä¸‹å‘çš„ï¼Œå‡è¦æ±‚ç¡®è®¤åº”ç­”)
 	 */
 	public void sendPacket(JT808Packet packet, boolean ack) {
 		byte[] bytes= packet.toByteArray();
 		ChannelFuture future = channel.writeAndFlush(Unpooled.copiedBuffer(new byte[] { 0x7e }, bytes,
 				new byte[] { 0x7e }));
 		if (!future.isSuccess()) {
-			//log.error("·¢ËÍÊı¾İ³ö´í:{}", future.cause());
+			//log.error("å‘é€æ•°æ®å‡ºé”™:{}", future.cause());
 		} else {
 			if (ack) {
 				alreadySentPacketMap.put(packet.getMsgNo(), packet);
@@ -171,7 +171,7 @@ public class Session {
 	}
 
 	/**
-	 * È·ÈÏÏûÏ¢
+	 * ç¡®è®¤æ¶ˆæ¯
 	 * 
 	 * @param message
 	 */

@@ -9,7 +9,7 @@ import Utils.ByteArrayUtil;
 import customer.server.model.DeviceId;
 
 /**
- * ÏûÏ¢±àÂë
+ * é”Ÿæ–¤æ‹·æ¯é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
  *
  * @author
  * 
@@ -31,7 +31,7 @@ import customer.server.model.DeviceId;
 public class MessageEncoder {
 
     /**
-     * ×ªÒå´¦Àí.
+     * è½¬é”Ÿè—‰å¤„é”Ÿæ–¤æ‹·.
      *
      * @param frame
      *            the frame
@@ -56,7 +56,7 @@ public class MessageEncoder {
     }
 
     /**
-     * ±àÂëÏûÏ¢
+     * é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·æ¯
      *
      * @param rsp
      *            the rsp
@@ -76,7 +76,7 @@ public class MessageEncoder {
     }
 
     /**
-     * ×éºÏÏûÏ¢ÌåÊôĞÔ
+     * é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿè¾ƒî®æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿï¿½
      *
      * @param bodyLength
      *            the body length
@@ -94,7 +94,7 @@ public class MessageEncoder {
     }
 
     /**
-     * ¹¹½¨ÏûÏ¢Í·
+     * é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·æ¯å¤´
      *
      * @param msgId
      *            the msg id
@@ -111,7 +111,7 @@ public class MessageEncoder {
     }
 
     /**
-     * ¹¹½¨ÏûÏ¢Í·
+     * é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·æ¯å¤´
      *
      * @param msgId
      *            the msg id

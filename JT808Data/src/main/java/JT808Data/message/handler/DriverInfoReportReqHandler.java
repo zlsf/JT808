@@ -15,7 +15,7 @@ import Utils.ByteArrayUtil;
 
 
 /**
- * ½âÎö¼İÊ»Ô±ĞÅÏ¢
+ * è§£æé©¾é©¶å‘˜ä¿¡æ¯
  * @author Administrator
  *
  */
@@ -26,7 +26,7 @@ public class DriverInfoReportReqHandler implements InboundMessageHandler {
 	@Override
 	public void handle(Session session, JT808Packet packetData) {
 
-		log.info("ÊÕµ½¼İÊ»Ô±ĞÅÏ¢......");
+		log.info("æ”¶åˆ°é©¾é©¶å‘˜ä¿¡æ¯......");
 		byte[] body = packetData.getMsgBodyBytes();
 		int status = ByteArrayUtil.getUnsignedByte(body, 0);
 		Date time = BcdCodeUtil.bcdToDateTime(ByteArrayUtil.copyOfRange(body, 1, 7));
@@ -34,7 +34,7 @@ public class DriverInfoReportReqHandler implements InboundMessageHandler {
 			int icResult = ByteArrayUtil.getUnsignedByte(body, 7);
 			if (icResult == 0x00) {
 				DriverInfo driver = DriverInfo.restore(ByteArrayUtil.copyOfRange(body, 8, body.length));
-				log.info("¼İÊ»Ô±ĞÅÏ¢:" + driver.toString());
+				log.info("é©¾é©¶å‘˜ä¿¡æ¯:" + driver.toString());
 			}
 		}
 	}

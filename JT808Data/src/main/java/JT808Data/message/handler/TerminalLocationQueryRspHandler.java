@@ -14,7 +14,7 @@ import JT808Data.model.codec.JT808Packet;
 import Utils.ByteArrayUtil;
 
 /**
- * Î»ÖÃĞÅÏ¢²éÑ¯Éè±¸Ó¦´ğ
+ * ä½ç½®ä¿¡æ¯æŸ¥è¯¢è®¾å¤‡åº”ç­”
  * @author Administrator
  *
  */
@@ -26,16 +26,16 @@ public class TerminalLocationQueryRspHandler implements InboundMessageHandler {
 	public void handle(Session session, JT808Packet packetData) {
 		byte[] msgBody = packetData.getMsgBodyBytes();
 		int ackMsgNo = ByteArrayUtil.getUnsignedShort(msgBody, 0);
-		// ¹¹½¨gpsĞÅÏ¢
+		// æ„å»ºgpsä¿¡æ¯
 		GnssPosition position = GnssPosition.restore(packetData.getTerminalId().toString(),
 				ByteArrayUtil.copyOfRange(msgBody, 2, 30));
-		// ¸½¼ÓĞÅÏ¢
+		// é™„åŠ ä¿¡æ¯
 		if (msgBody.length > 30) {
 			List<GnssAttachment> attachments = GnssAttachment
 					.restoreAttachments(ByteArrayUtil.copyOfRange(msgBody, 30, msgBody.length));
 		}
-		// TODO :Î»ÖÃĞÅÏ¢´¦Àí
-		log.info("»ñÈ¡µ½Î»ÖÃĞÅÏ¢.......");
+		// TODO :ä½ç½®ä¿¡æ¯å¤„ç†
+		log.info("è·å–åˆ°ä½ç½®ä¿¡æ¯.......");
 		log.info(position.toString());
 
 	}

@@ -4,7 +4,7 @@ package JT808Data.model.codec;
 import Utils.ByteArrayUtil;
 
 /**
- * 车辆附加信息
+ * 杞﹁締闄勫姞淇℃伅
  * @author Administrator
  *
  */

@@ -4,23 +4,23 @@ package JT808Data.model.codec;
 import Utils.ByteArrayUtil;
 
 /**
- * 808µÄ´ó°ü
+ * 808çš„å¤§åŒ…
  */
 public class JT808LargePacket {
 
-	/** ÏûÏ¢ID */
+	/** æ¶ˆæ¯ID */
 	private final int msgId;
 	
-	/** ÖÕ¶ËÊÖ»úºÅ */
+	/** ç»ˆç«¯æ‰‹æœºå· */
 	private final TerminalId terminalId;
 	
-	/** ¿ªÊ¼µÄÏûÏ¢ºÅ */
+	/** å¼€å§‹çš„æ¶ˆæ¯å· */
 	private final int startMsgNo;
 	
 	/**  */
 	private int received;
 	
-	/** ÏûÏ¢ÌåÊı×é */
+	/** æ¶ˆæ¯ä½“æ•°ç»„ */
 	private byte[][] msgBodyArray;
 
 
@@ -64,7 +64,7 @@ public class JT808LargePacket {
 	}
 
 	/**
-	 * ¼ì²âÊÇ·ñÂúÌî
+	 * æ£€æµ‹æ˜¯å¦æ»¡å¡«
 	 *
 	 * @return true, if is fulfill
 	 */
@@ -77,7 +77,7 @@ public class JT808LargePacket {
 	}
 
 	/**
-	 * ×ª»»Îª808Ö¡°ü
+	 * è½¬æ¢ä¸º808å¸§åŒ…
 	 *
 	 * @return the JT 808 packet
 	 */

@@ -4,7 +4,7 @@ package JT808Data.message;
 import JT808Data.model.codec.OutboundMessage;
 
 /**
- * Ó¦´ð
+ * åº”ç­”
  */
 public interface PlatformAckMessage extends OutboundMessage {
 

@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import JT808Data.model.codec.TerminalId;
 
 /**
- * session ¹ÜÀíÆ÷.
+ * session ç®¡ç†å™¨.
  *
  * @author <p>Modification History:</p>
  * <p>Date       Author      Description</p>
@@ -38,11 +38,11 @@ public class SessionManager {
 		private static final SessionManager INSTANCE = new SessionManager();
 	}
 
-	// Session ×Öµä
+	// Session å­—å…¸
 	private Map<String, Session> sessionMap;
 
 	/**
-	 * ÖÕ¶ËÊÖ»ú
+	 * ç»ˆç«¯æ‰‹æœº
 	 */
 	private Map<TerminalId, String> terminalMap;
 
@@ -104,7 +104,7 @@ public class SessionManager {
 	}
 
 	/**
-	 * ¸ù¾İÊÖ»úºÅ»ñÈ¡session.
+	 * æ ¹æ®æ‰‹æœºå·è·å–session.
 	 *
 	 * @param terminalId the terminal id
 	 * @return the session by terminal id
@@ -118,7 +118,7 @@ public class SessionManager {
 	}
 
 	/**
-	 * Ìí¼Ósession.
+	 * æ·»åŠ session.
 	 *
 	 * @param sessionId the session id
 	 * @param session the session
@@ -130,7 +130,7 @@ public class SessionManager {
 	}
 
 	/**
-	 * ÒÆ³ısession
+	 * ç§»é™¤session
 	 *
 	 * @param sessionId the session id
 	 * @return the session
@@ -145,7 +145,7 @@ public class SessionManager {
 	}
 
 	/**
-	 * Ìì»úÊÖ»úºÅ
+	 * å¤©æœºæ‰‹æœºå·
 	 *
 	 * @param terminalId the terminal id
 	 * @param sessionId the session id
@@ -159,7 +159,7 @@ public class SessionManager {
 	}
 
 	/**
-	 * ÒÆ³ıÊÖ»úºÅ
+	 * ç§»é™¤æ‰‹æœºå·
 	 *
 	 * @param terminalId the terminal id
 	 * @param sessionId the session id

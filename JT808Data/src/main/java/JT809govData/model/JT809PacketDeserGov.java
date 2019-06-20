@@ -43,7 +43,7 @@ public class JT809PacketDeserGov {
 	}
 
 	/**
-	 * ½âÎö
+	 * è§£æ
 	 * 
 	 * @param frame
 	 * @return
@@ -104,7 +104,7 @@ public class JT809PacketDeserGov {
 	}
 
 	/**
-	 * ×ªÒå´¦Àí
+	 * è½¬ä¹‰å¤„ç†
 	 * 
 	 * @param frame
 	 * @return
@@ -133,7 +133,7 @@ public class JT809PacketDeserGov {
 	}
 
 	/**
-	 * ·´×ªÒå´¦Àí
+	 * åè½¬ä¹‰å¤„ç†
 	 * 
 	 * @param frame
 	 * @return

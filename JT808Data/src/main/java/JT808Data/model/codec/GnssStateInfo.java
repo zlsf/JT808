@@ -1,6 +1,6 @@
 package JT808Data.model.codec;
 /**
- * 位置状态标志位
+ * 浣嶇疆鐘舵�佹爣蹇椾綅
  * 
  * @author 
  *

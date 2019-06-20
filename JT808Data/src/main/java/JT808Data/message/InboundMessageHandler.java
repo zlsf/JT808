@@ -5,7 +5,7 @@ import JT808Data.model.Session;
 import JT808Data.model.codec.JT808Packet;
 
 /**
- * 入栈消息处理
+ * 鍏ユ爤娑堟伅澶勭悊
  */
 public interface InboundMessageHandler {
 

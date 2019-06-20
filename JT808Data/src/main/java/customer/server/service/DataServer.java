@@ -23,33 +23,33 @@ import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
 
 /**
- * Ö÷·şÎñ¿ØÖÆÆ÷. Ö÷Òª¸ºÔğÆô¶¯·şÎñ¶Ë³ÌĞò
+ * é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿï¿½. é”Ÿæ–¤æ‹·è¦é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é¡ºé”Ÿæ–¤æ‹·é”Ÿï¿½
  */
 public final class DataServer implements Runnable {
 
-    /** ÈÕÖ¾. */
+    /** é”Ÿæ–¤æ‹·å¿—. */
     private Logger log = LoggerFactory.getLogger(DataServer.class);
-    /** Ïß³Ì³Ø. */
+    /** é”Ÿç«­ç¨‹ç­¹æ‹·. */
     private ExecutorService serverExecutor = Executors.newSingleThreadExecutor();
 
     /** The future. */
     private Future<?> future;
 
-    /** ¶Ë¿ÚºÅ. */
+    /** é”Ÿå‰¿å£çŒ´æ‹·. */
     private int port = 8899;
 
-    /** ÆôÍ£±ê¼Ç. */
+    /** é”Ÿæ–¤æ‹·åœé”Ÿæ–¤æ‹·é”Ÿï¿½. */
     private volatile boolean running = false;
 
     /**
-     * ÔËĞĞ·½Ê½ D2C Éè±¸¶ÔÖĞĞÄ =0 C2C ÖĞĞÄ¶ÔÖĞĞÄ=1
+     * é”Ÿæ–¤æ‹·é”Ÿå«å‡¤æ‹·å¼ D2C é”Ÿå€Ÿå¤‡é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹· =0 C2C é”Ÿæ–¤æ‹·é”Ÿä¾¥è®¹æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·=1
      */
     private static int model = Constant.Service_Model_D2C;
 
     /** The data service handler. */
     private DataServiceHandler dataServiceHandler;
 
-    /** Í¬²½Ëø. */
+    /** åŒé”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·. */
     private static Object locker = new Object();
 
     /**
@@ -80,29 +80,29 @@ public final class DataServer implements Runnable {
     }
 
     /**
-     * ´¦Àí»ú.
+     * é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿï¿½.
      */
     public DataServer() {
 	dataServiceHandler = new DataServiceHandler();
     }
 
     /**
-     * Æô¶¯·şÎñ.
+     * é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·.
      */
     public void start() {
-	log.info("Æô¶¯·şÎñ......");
+	log.info("é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·......");
 	synchronized (locker) {
 	    this.running = true;
 	    future = serverExecutor.submit(this);
 	}
-	log.info("Æô¶¯·şÎñ ³É¹¦......");
+	log.info("é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹· é”Ÿç¼´ç™¸æ‹·......");
     }
 
     /**
-     * Í£Ö¹·şÎñ.
+     * åœæ­¢é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·.
      */
     public void stop() {
-	log.info("Í£Ö¹ ·şÎñ......");
+	log.info("åœæ­¢ é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·......");
 	synchronized (locker) {
 	    if (!running)
 		return;
@@ -114,11 +114,11 @@ public final class DataServer implements Runnable {
 	    future = null;
 	    this.running = false;
 	}
-	log.info("Í£Ö¹·şÎñ  ³É¹¦......");
+	log.info("åœæ­¢é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·  é”Ÿç¼´ç™¸æ‹·......");
     }
 
     /**
-     * ·şÎñÆô¶¯
+     * é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
      */
     @Override
     public void run() {
@@ -141,14 +141,14 @@ public final class DataServer implements Runnable {
     }
 
     /**
-     * Í¨µÀ³õÊ¼»¯
+     * é€šé”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·å§‹é”Ÿæ–¤æ‹·
      */
     private ChannelInitializer<SocketChannel> channelnit = new ChannelInitializer<SocketChannel>() {
 
 	@Override
 	protected void initChannel(SocketChannel channel) throws Exception {
 	    channel.pipeline().addLast("logging", new LoggingHandler(LogLevel.TRACE))
-		    .addLast("idle-handler", new IdleStateHandler(100, 100, 100)) // ÖÜÆÚ¶ÁĞ´£¬¿ÉÈÏÎªÊÇĞÄÌø
+		    .addLast("idle-handler", new IdleStateHandler(100, 100, 100)) // é”Ÿæ–¤æ‹·é”ŸèŠ‚è®¹æ‹·å†™é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·ä¸ºé”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
 		    .addLast("frame-decoder",
 			    new DelimiterBasedFrameDecoder(1024, Unpooled.copiedBuffer(new byte[] { 0x7e }),
 				    Unpooled.copiedBuffer(new byte[] { 0x7e, 0x7e })))

@@ -4,7 +4,7 @@ import customer.server.model.DeviceId;
 import io.netty.channel.Channel;
 
 /**
- * ÊÕÏûÏ¢
+ * é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·æ¯
  *
  * @author
  * 
@@ -61,7 +61,7 @@ public interface ReceivedMessage {
     Channel getChannel();
 
     /**
-     * ´¦ÀíĞÅÏ¢
+     * é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·æ¯
      */
     void dealMessage();
 }

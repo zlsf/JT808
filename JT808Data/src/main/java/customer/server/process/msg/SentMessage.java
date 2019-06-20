@@ -3,7 +3,7 @@ package customer.server.process.msg;
 import customer.server.model.DeviceId;
 
 /**
- * ����Ϣ
+ * 锟斤拷锟斤拷息
  *
  * @author
  * 

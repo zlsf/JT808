@@ -2,7 +2,7 @@
 package JT808Data.model.codec;
 
 /**
- * Î»ÖÃ±¨¾¯±êÖ¾Î»
+ * ä½ç½®æŠ¥è­¦æ ‡å¿—ä½
  * 
  * @author cuillgln
  *

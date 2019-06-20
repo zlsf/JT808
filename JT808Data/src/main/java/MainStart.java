@@ -5,30 +5,30 @@ import JT808Data.DataServer808;
 import Utils.Constant;
 
 /**
- * ³ÌĞòÈë¿ÚÎÄ¼ş
+ * ç¨‹åºå…¥å£æ–‡ä»¶
  * @author Administrator
  *
  */
 public class MainStart {
 
 	/**
-	 * ÈÕÖ¾
+	 * æ—¥å¿—
 	 */
 	private static Logger log = LoggerFactory.getLogger(MainStart.class);
 
 	public static void main(String[] args) {
-		log.info("³ÌĞòÆô¶¯......");
+		log.info("ç¨‹åºå¯åŠ¨......");
 		DataServer808 server = DataServer808.getInstance();
-		server.setPort(8003); // ¿ÉÒÔÖØĞÂÉèÖÃ¶Ë¿ÚºÅ£¬²»ÉèÖÃÄ¬ÈÏ8899
-		DataServer808.setModel(Constant.Service_Model_D2C); // Éè±¸¶ÔÖĞĞÄ
+		server.setPort(8003); // å¯ä»¥é‡æ–°è®¾ç½®ç«¯å£å·ï¼Œä¸è®¾ç½®é»˜è®¤8899
+		DataServer808.setModel(Constant.Service_Model_D2C); // è®¾å¤‡å¯¹ä¸­å¿ƒ
 
-		// Ä³Ğ©¶¨Ê±ÂÖÑµµÄ¿Ú--·ÏÆú²»ÓÃ£¬ÒòÎªÎ»ÖÃĞÅÏ¢¶¨Ê±ÉÏ±¨
+		// æŸäº›å®šæ—¶è½®è®­çš„å£--åºŸå¼ƒä¸ç”¨ï¼Œå› ä¸ºä½ç½®ä¿¡æ¯å®šæ—¶ä¸ŠæŠ¥
 
-		// log.info("¶¨Ê±ÂÖÑµÆô¶¯......");
+		// log.info("å®šæ—¶è½®è®­å¯åŠ¨......");
 		// Task task = new Task();
 		// task.doTask();
 		server.run();
-		log.debug("³ÌĞò ÍË³ö......");
+		log.debug("ç¨‹åº é€€å‡º......");
 	}
 
 }

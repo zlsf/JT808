@@ -20,16 +20,16 @@ import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 
 /**
- * ÏûÏ¢´¦Àí.
+ * æ¶ˆæ¯å¤„ç†.
  */
 public class DataServiceHandler808 extends SimpleChannelInboundHandler<ByteBuf> {
 
-	/** ÈÕÖ¾. */
+	/** æ—¥å¿—. */
 	private final Logger log = LoggerFactory.getLogger(DataServiceHandler808.class);
 
-	/** Ïß³Ì³Ø. */
+	/** çº¿ç¨‹æ± . */
 	private ExecutorService taskExecutor = Executors.newCachedThreadPool();
-	/** ÏûÏ¢´¦Àí»ú. */
+	/** æ¶ˆæ¯å¤„ç†æœº. */
 	private MessageProcessService messageProcessService;
 
 	public DataServiceHandler808() {
@@ -37,27 +37,27 @@ public class DataServiceHandler808 extends SimpleChannelInboundHandler<ByteBuf> 
 	}
 
 	/*
-	 * Á´½Ó³É¹¦
+	 * é“¾æ¥æˆåŠŸ
 	 */
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
 		Session session = Session.buildSession(ctx.channel());
 		session.setMessageProcessService(messageProcessService);
 		SessionManager.getInstance().addSession(session.getId(), session);
-		log.debug("½¨Á¢Á´½Ó: {}", session);
+		log.debug("å»ºç«‹é“¾æ¥: {}", session);
 	}
 
 	/*
-	 * Á´½Ó¶Ï¿ªµÄÊ±ºò
+	 * é“¾æ¥æ–­å¼€çš„æ—¶å€™
 	 */
 	@Override
 	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
 		Session session = removeSession(Session.buildId(ctx.channel()));
-		log.debug("Á´½Ó¶Ï¿ª: {}", session);
+		log.debug("é“¾æ¥æ–­å¼€: {}", session);
 	}
 
 	/*
-	 * ÓÃ»§ÊÂ¼ş
+	 * ç”¨æˆ·äº‹ä»¶
 	 */
 	@Override
 	public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
@@ -84,8 +84,8 @@ public class DataServiceHandler808 extends SimpleChannelInboundHandler<ByteBuf> 
 		taskExecutor.execute(() -> {
 			try {
 				// if (DataServer.getModel() == Constant.Service_Model_C2C) { }
-				// 2½øÖÆÁ÷¹¹½¨ÏûÏ¢°ü
-				log.info("¹¹½¨°ü......");
+				// 2è¿›åˆ¶æµæ„å»ºæ¶ˆæ¯åŒ…
+				log.info("æ„å»ºåŒ…......");
 				if (DataServer808.getModel() == Constant.Service_Model_D2C) {
 					JT808Packet packet = JT808PacketCodec.frameToPacket(JT808PacketCodec.unescape(bs));
 					if (packet != null) {
@@ -100,7 +100,7 @@ public class DataServiceHandler808 extends SimpleChannelInboundHandler<ByteBuf> 
 	}
 
 	/**
-	 * ÒÆ³ıSession
+	 * ç§»é™¤Session
 	 * 
 	 * @param sessionId
 	 * @return

@@ -5,7 +5,7 @@ import customer.server.model.PacketData;
 import io.netty.channel.Channel;
 
 /**
- * ���������
+ * 锟斤拷锟斤拷锟斤拷锟斤拷锟�
  *
  * @author
  * 
@@ -25,18 +25,18 @@ import io.netty.channel.Channel;
  */
 public abstract class AbstractMessage implements ReceivedMessage, SentMessage {
 
-    /** ��ϢID */
+    /** 锟斤拷息ID */
     protected int msgId;
 
-    /** �豸 ID */
+    /** 锟借备 ID */
     protected DeviceId deviceId;
 
-    /** ��Ϣ�� */
+    /** 锟斤拷息锟斤拷 */
     protected int msgNo;
 
-    /** ��Ϣ����ͨ�� */
+    /** 锟斤拷息锟斤拷锟斤拷通锟斤拷 */
     protected Channel channel;
-    /** ����վ���豸�� */
+    /** 锟斤拷锟斤拷站锟斤拷锟借备锟斤拷 */
     protected String deviceCode;
 
     public String getDeviceCode() {
@@ -71,7 +71,7 @@ public abstract class AbstractMessage implements ReceivedMessage, SentMessage {
     }
 
     /**
-     * ������Ϣ��
+     * 锟斤拷锟斤拷锟斤拷息锟斤拷
      *
      * @param msgBodyBytes
      *            the new msg body
@@ -79,12 +79,12 @@ public abstract class AbstractMessage implements ReceivedMessage, SentMessage {
     public abstract void setMsgBody(byte[] msgBodyBytes);
 
     /*
-     * ��ȡ��Ϣ��
+     * 锟斤拷取锟斤拷息锟斤拷
      */
     public abstract byte[] getMsgBody();
 
     /*
-     * ��ȡ��ϢID
+     * 锟斤拷取锟斤拷息ID
      */
     @Override
     public int getMsgId() {
@@ -96,7 +96,7 @@ public abstract class AbstractMessage implements ReceivedMessage, SentMessage {
     }
 
     /*
-     * ��ȡ��Ϣ��
+     * 锟斤拷取锟斤拷息锟斤拷
      */
     @Override
     public int getMsgNo() {
@@ -104,7 +104,7 @@ public abstract class AbstractMessage implements ReceivedMessage, SentMessage {
     }
 
     /*
-     * ����ͨ��
+     * 锟斤拷锟斤拷通锟斤拷
      */
     @Override
     public void setChannel(Channel channel) {
@@ -112,7 +112,7 @@ public abstract class AbstractMessage implements ReceivedMessage, SentMessage {
     }
 
     /*
-     * ��ȡͨ��
+     * 锟斤拷取通锟斤拷
      */
     @Override
     public Channel getChannel() {

@@ -6,7 +6,7 @@ import java.util.Arrays;
 import Utils.BcdCodeUtil;
 
 /**
- * ÖÕ¶ËÊÖ»úºÅ
+ * ç»ˆç«¯æ‰‹æœºå·
  * 
  * @author cuillgln
  * 

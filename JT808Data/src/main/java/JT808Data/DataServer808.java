@@ -30,34 +30,34 @@ import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
 
 /**
- * Ö÷·şÎñ¿ØÖÆÆ÷.
- * Ö÷Òª¸ºÔğÆô¶¯·şÎñ¶Ë³ÌĞò
+ * ä¸»æœåŠ¡æ§åˆ¶å™¨.
+ * ä¸»è¦è´Ÿè´£å¯åŠ¨æœåŠ¡ç«¯ç¨‹åº
  */
 public final class DataServer808 implements Runnable {
 
-	/** ÈÕÖ¾. */
+	/** æ—¥å¿—. */
 	private Logger log = LoggerFactory.getLogger(DataServer808.class);
-	/** Ïß³Ì³Ø. */
+	/** çº¿ç¨‹æ± . */
 	private ExecutorService serverExecutor = Executors.newSingleThreadExecutor();
 
 	/** The future. */
 	private Future<?> future;
 
-	/** ¶Ë¿ÚºÅ. */
+	/** ç«¯å£å·. */
 	private int port = 8899;
 
-	/** ÆôÍ£±ê¼Ç. */
+	/** å¯åœæ ‡è®°. */
 	private volatile boolean running = false;
 
 	/**
-	 * ÔËĞĞ·½Ê½ D2C Éè±¸¶ÔÖĞĞÄ =0 C2C ÖĞĞÄ¶ÔÖĞĞÄ=1
+	 * è¿è¡Œæ–¹å¼ D2C è®¾å¤‡å¯¹ä¸­å¿ƒ =0 C2C ä¸­å¿ƒå¯¹ä¸­å¿ƒ=1
 	 */
 	private static int model = Constant.Service_Model_D2C;
 
 	/** The data service handler. */
 	private DataServiceHandler808 dataServiceHandler;
 
-	/** Í¬²½Ëø. */
+	/** åŒæ­¥é”. */
 	private static Object locker = new Object();
 
 	/**
@@ -88,29 +88,29 @@ public final class DataServer808 implements Runnable {
 	}
 
 	/**
-	 * ´¦Àí»ú.
+	 * å¤„ç†æœº.
 	 */
 	private DataServer808() {
 		dataServiceHandler = new DataServiceHandler808();
 	}
 
 	/**
-	 * Æô¶¯·şÎñ.
+	 * å¯åŠ¨æœåŠ¡.
 	 */
 	public void start() {
-		log.info("Æô¶¯·şÎñ......");
+		log.info("å¯åŠ¨æœåŠ¡......");
 		synchronized (locker) {
 			this.running = true;
 			future = serverExecutor.submit(this);
 		}
-		log.info("Æô¶¯·şÎñ ³É¹¦......");
+		log.info("å¯åŠ¨æœåŠ¡ æˆåŠŸ......");
 	}
 
 	/**
-	 * Í£Ö¹·şÎñ.
+	 * åœæ­¢æœåŠ¡.
 	 */
 	public void stop() {
-		log.info("Í£Ö¹ ·şÎñ......");
+		log.info("åœæ­¢ æœåŠ¡......");
 		synchronized (locker) {
 			if (!running)
 				return;
@@ -122,11 +122,11 @@ public final class DataServer808 implements Runnable {
 			future = null;
 			this.running = false;
 		}
-		log.info("Í£Ö¹·şÎñ  ³É¹¦......");
+		log.info("åœæ­¢æœåŠ¡  æˆåŠŸ......");
 	}
 
 	/**
-	 * ·şÎñÆô¶¯
+	 * æœåŠ¡å¯åŠ¨
 	 */
 	@Override
 	public void run() {
@@ -157,7 +157,7 @@ public final class DataServer808 implements Runnable {
 	}
 
 	/**
-	 * Í¨µÀ³õÊ¼»¯
+	 * é€šé“åˆå§‹åŒ–
 	 */
 	private ChannelInitializer<SocketChannel> channelnitD2C = new ChannelInitializer<SocketChannel>() {
 
@@ -165,14 +165,14 @@ public final class DataServer808 implements Runnable {
 		protected void initChannel(SocketChannel channel) throws Exception {
 			channel.pipeline().addLast("logging", new LoggingHandler(LogLevel.TRACE))
 					.addLast("idle-handler", new IdleStateHandler(100, 100, 100))
-					// ÖÜÆÚ¶ÁĞ´£¬¿ÉÈÏÎªÊÇĞÄÌø
+					// å‘¨æœŸè¯»å†™ï¼Œå¯è®¤ä¸ºæ˜¯å¿ƒè·³
 					.addLast("frame-decoder",
 							new DelimiterBasedFrameDecoder(1024, Unpooled.copiedBuffer(new byte[] { 0x7e }),
 									Unpooled.copiedBuffer(new byte[] { 0x7e, 0x7e })))
 					.addLast("808d2c-handler", new DataServiceHandler808());
 		}
 	};
-	/** Í¨µÀ³õÊ¼»¯. */
+	/** é€šé“åˆå§‹åŒ–. */
 	private ChannelInitializer<SocketChannel> channelnitC2C = new ChannelInitializer<SocketChannel>() {
 
 		@Override
@@ -188,7 +188,7 @@ public final class DataServer808 implements Runnable {
 	};
 
 	/**
-	 * Í³Ò»·¢ËÍÊı¾İ
+	 * ç»Ÿä¸€å‘é€æ•°æ®
 	 * 
 	 * @param channel
 	 * @param data
@@ -203,7 +203,7 @@ public final class DataServer808 implements Runnable {
 			}
 			return true;
 		} catch (InterruptedException e) {
-			log.error("·¢ËÍÊı¾İÒì³£:{}", future.cause());
+			log.error("å‘é€æ•°æ®å¼‚å¸¸:{}", future.cause());
 			return false;
 		}
 	}

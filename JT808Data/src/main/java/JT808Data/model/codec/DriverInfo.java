@@ -6,7 +6,7 @@ import Utils.BcdCodeUtil;
 import Utils.ByteArrayUtil;
 
 /**
- * ��ʻԱ��Ϣ
+ * 驾驶员信息
  * @author Administrator
  *
  */

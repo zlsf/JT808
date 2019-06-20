@@ -23,10 +23,10 @@ import io.netty.channel.Channel;
  */
 public class PacketData {
 
-    /** ��Ϣͷ */
+    /** 锟斤拷息头 */
     protected MsgHeader header;
 
-    /** ��Ϣ���body���� */
+    /** 锟斤拷息锟斤拷锟絙ody锟斤拷锟斤拷 */
     protected byte[] msgBodyBytes;
 
     /** The checksum. */

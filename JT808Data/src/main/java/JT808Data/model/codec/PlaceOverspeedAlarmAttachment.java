@@ -3,7 +3,7 @@ package JT808Data.model.codec;
 import Utils.ByteArrayUtil;
 
 /**
- * ³¬ËÙ±¨¾¯
+ * è¶…é€ŸæŠ¥è­¦
  * 
  * @author cuillgln
  *

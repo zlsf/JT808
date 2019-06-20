@@ -7,7 +7,7 @@ import JT808Data.model.codec.TerminalId;
 import Utils.JT808Constant;
 
 /**
- * Î»ÖÃ²éÑ¯ »ù±¾ÓÀ²»ÉÏ£¬Èç¹ûĞèÒªÊÖ¶¯²éÑ¯µÄÊ±ºò¿ÉÒÔÏòÉè±¸·¢ËÍ
+ * ä½ç½®æŸ¥è¯¢ åŸºæœ¬æ°¸ä¸ä¸Šï¼Œå¦‚æœéœ€è¦æ‰‹åŠ¨æŸ¥è¯¢çš„æ—¶å€™å¯ä»¥å‘è®¾å¤‡å‘é€
  * @author Administrator
  *
  */
@@ -19,7 +19,7 @@ public class TerminalLocationQueryReq extends AbstractOutboundMessage implements
 
 	@Override
 	public byte[] getMsgBody() {
-		// Ğ­ÒéÀïbodyĞÅÏ¢Îª¿Õ
+		// åè®®é‡Œbodyä¿¡æ¯ä¸ºç©º
 		return new byte[0];
 	}
 }

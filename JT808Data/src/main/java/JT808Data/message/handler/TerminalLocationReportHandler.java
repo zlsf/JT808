@@ -15,7 +15,7 @@ import Utils.ByteArrayUtil;
 import Utils.JT808Constant;
 
 /**
- * Î»ÖÃĞÅÏ¢¶¨ÆÚ»ã±¨
+ * ä½ç½®ä¿¡æ¯å®šæœŸæ±‡æŠ¥
  * @author Administrator
  *
  */
@@ -33,11 +33,11 @@ public class TerminalLocationReportHandler implements InboundMessageHandler {
 			List<GnssAttachment> attachments = GnssAttachment
 					.restoreAttachments(ByteArrayUtil.copyOfRange(msgBody, 28, msgBody.length));
 		}
-		//TODO£º ´¦Àí GPSÎ»ÖÃĞÅÏ¢
-		log.info("»ñÈ¡µ½Î»ÖÃĞÅÏ¢.......");
+		//TODOï¼š å¤„ç† GPSä½ç½®ä¿¡æ¯
+		log.info("è·å–åˆ°ä½ç½®ä¿¡æ¯.......");
 		log.info(position.toString());
 
-		// ÊÕµ½ºóµÄÍ¨ÓÃÓ¦´ğ
+		// æ”¶åˆ°åçš„é€šç”¨åº”ç­”
 		session.sendPlatformGeneralRsp(packetData.getTerminalId(), packetData.getMsgNo(), packetData.getMsgId(),
 				JT808Constant.GENERAL_RSP_RESULT_SUCCESS);
 	}

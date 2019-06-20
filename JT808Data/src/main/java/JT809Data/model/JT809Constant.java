@@ -59,7 +59,7 @@ public class JT809Constant {
 
 	public static final int DOWN_BASE_MSG = 0x9600;
 
-	// ×ÓÒµÎñ³£Á¿
+	// å­ä¸šåŠ¡å¸¸é‡
 	public static final int UP_EXG_MSG_REGISTER = 0x1201;
 	public static final int UP_EXG_MSG_REAL_LOCATION = 0x1202;
 	public static final int UP_EXG_MSG_HISTORY_LOCATION = 0x1203;

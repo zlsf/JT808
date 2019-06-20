@@ -3,7 +3,7 @@ package customer.server.model;
 import java.util.Arrays;
 
 /**
- * 设备标识
+ * 閿熷�熷閿熸枻鎷疯瘑
  * 
  * @author cuillgln
  * 

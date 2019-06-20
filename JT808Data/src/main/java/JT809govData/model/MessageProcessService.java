@@ -9,7 +9,7 @@ import JT809govData.netty.MessageFactory809Gov;
 
 
 /**
- * ÏûÏ¢´¦ÀíÆ÷
+ * æ¶ˆæ¯å¤„ç†å™¨
  */
 public class MessageProcessService {
 
@@ -23,7 +23,7 @@ public class MessageProcessService {
 	}
 
 	/**
-	 * ´¦ÀíÏûÏ¢.
+	 * å¤„ç†æ¶ˆæ¯.
 	 *
 	 * @param session the session
 	 * @param packetData the packet data
@@ -32,11 +32,11 @@ public class MessageProcessService {
 		int msgId = packetData.getMsgId();
 		InboundMessageHandler809Gov message = MessageFactory809Gov.getInstance().buildMessage(msgId);
 		if (null == message)
-			log.info("Î´ÊµÏÖ0x{}", Integer.toHexString(msgId));
+			log.info("æœªå®ç°0x{}", Integer.toHexString(msgId));
 		try {
 			message.handle(session, packetData);
 		} catch (Exception ex) {
-			log.info("Ö´ĞĞÒì³£0x{}", Integer.toHexString(msgId));
+			log.info("æ‰§è¡Œå¼‚å¸¸0x{}", Integer.toHexString(msgId));
 		}
 	}
 }

@@ -4,7 +4,7 @@ package JT808Data.model.codec;
 import Utils.ByteArrayUtil;
 
 /**
- * ╦╫╪спео╒
+ * И≥└Е┼═Д©║Ф│╞
  * @author Administrator
  *
  */

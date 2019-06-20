@@ -20,14 +20,14 @@ import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 
 /**
- * ��Ϣ����.
+ * 锟斤拷息锟斤拷锟斤拷.
  */
 public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
-    /** ��־. */
+    /** 锟斤拷志. */
     private final Logger log = LoggerFactory.getLogger(DataServiceHandler.class);
 
-    /** �̳߳�. */
+    /** 锟竭程筹拷. */
     private ExecutorService taskExecutor = Executors.newCachedThreadPool();
 
     public DataServiceHandler() {
@@ -35,26 +35,26 @@ public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
     }
 
     /*
-     * ���ӳɹ�
+     * 锟斤拷锟接成癸拷
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
 	Session session = Session.buildSession(ctx.channel());
 	SessionManager.getInstance().put(session.getId(), session);
-	log.debug("��������: {}", session);
+	log.debug("锟斤拷锟斤拷锟斤拷锟斤拷: {}", session);
     }
 
     /*
-     * ���ӶϿ���ʱ��
+     * 锟斤拷锟接断匡拷锟斤拷时锟斤拷
      */
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
 	Session session = removeSession(Session.buildId(ctx.channel()));
-	log.debug("���ӶϿ�: {}", session);
+	log.debug("锟斤拷锟接断匡拷: {}", session);
     }
 
     /*
-     * �û��¼�
+     * 锟矫伙拷锟铰硷拷
      */
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
@@ -80,8 +80,8 @@ public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
 	taskExecutor.execute(() -> {
 	    try {
-		// 2������������Ϣ��
-		log.info("������......");
+		// 2锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷息锟斤拷
+		log.info("锟斤拷锟斤拷锟斤拷......");
 		PacketData packet = PacketCodec.frameToPacket(PacketCodec.unescape(bs));
 		packet.setChannel(ctx.channel());
 		if (packet != null) {
@@ -104,7 +104,7 @@ public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
     }
 
     /**
-     * �Ƴ�Session
+     * 锟狡筹拷Session
      * 
      * @param sessionId
      * @return

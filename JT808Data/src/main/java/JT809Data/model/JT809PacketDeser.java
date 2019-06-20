@@ -43,7 +43,7 @@ public class JT809PacketDeser {
 	}
 
 	/**
-	 * ½âÎö
+	 * è§£æ
 	 * 
 	 * @param frame
 	 * @return
@@ -101,7 +101,7 @@ public class JT809PacketDeser {
 	}
 
 	/**
-	 * ×ªÒå´¦Àí
+	 * è½¬ä¹‰å¤„ç†
 	 * 
 	 * @param frame
 	 * @return
@@ -130,7 +130,7 @@ public class JT809PacketDeser {
 	}
 
 	/**
-	 * ·´×ªÒå´¦Àí
+	 * åè½¬ä¹‰å¤„ç†
 	 * 
 	 * @param frame
 	 * @return

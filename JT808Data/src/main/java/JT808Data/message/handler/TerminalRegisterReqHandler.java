@@ -12,7 +12,7 @@ import JT808Data.model.codec.TerminalRegisterResult;
 import Utils.ByteArrayUtil;
 
 /**
- * ÖÕ¶Ë×¢²á´¦Àí ÆäÖĞ°üº¬ÁË³µÁ¾ĞÅÏ¢
+ * ç»ˆç«¯æ³¨å†Œå¤„ç† å…¶ä¸­åŒ…å«äº†è½¦è¾†ä¿¡æ¯
  * 
  * @author zlsf
  *
@@ -22,7 +22,7 @@ public class TerminalRegisterReqHandler implements InboundMessageHandler {
 	private static final Logger log = LoggerFactory.getLogger(TerminalRegisterReqHandler.class);
 
 	public void handle(Session session, JT808Packet packetData) {
-		log.info("ÊÕµ½×¢²áĞÅÏ¢");
+		log.info("æ”¶åˆ°æ³¨å†Œä¿¡æ¯");
 		byte[] body = packetData.getMsgBodyBytes();
 		TerminalRegister tr = new TerminalRegister(packetData.getTerminalId().toString());
 		tr.setProvinceCode(ByteArrayUtil.getUnsignedShort(body, 0));
@@ -32,9 +32,9 @@ public class TerminalRegisterReqHandler implements InboundMessageHandler {
 		tr.setTerminalId(ByteArrayUtil.toString(ByteArrayUtil.copyOfRange(body, 29, 36)));
 		tr.setVehicleColor(ByteArrayUtil.getUnsignedByte(body, 36));
 		tr.setVehicleNo(ByteArrayUtil.toString(ByteArrayUtil.copyOfRange(body, 37, body.length)));
-		// TODO :×¢²á
-		log.info("×¢²áĞÅÏ¢"+tr.toString());
-		TerminalRegisterResult result = new TerminalRegisterResult(TerminalRegisterRsp.RESULT_SUCCESS, "qqqqq");// ÕâÀïÈÏÖ¤
+		// TODO :æ³¨å†Œ
+		log.info("æ³¨å†Œä¿¡æ¯"+tr.toString());
+		TerminalRegisterResult result = new TerminalRegisterResult(TerminalRegisterRsp.RESULT_SUCCESS, "qqqqq");// è¿™é‡Œè®¤è¯
 
 		TerminalRegisterRsp rsp = new TerminalRegisterRsp(packetData.getTerminalId());
 		rsp.setAckMsgNo(packetData.getMsgNo());

@@ -1,7 +1,7 @@
 package JT808Data.model.codec;
 
 /**
- * ³µÁ¾×´Ì¬
+ * è½¦è¾†çŠ¶æ€
  * 
  * @author cuillgln
  *

@@ -3,95 +3,95 @@ package Utils;
 
 public class JT808Constant {
 	/**
-	 * µ¥¸öFrameÏûÏ¢µÄÏûÏ¢Ìå×î´ó³¤¶È(1023) 2^10 - 1
+	 * å•ä¸ªFrameæ¶ˆæ¯çš„æ¶ˆæ¯ä½“æœ€å¤§é•¿åº¦(1023) 2^10 - 1
 	 */
 	public static final int MAX_MSG_BODY_LENGTH = 0b1111111111;
 
 	/**
-	 * Í¨ÓÃÓ¦´ğ×´Ì¬
+	 * é€šç”¨åº”ç­”çŠ¶æ€
 	 */
-	public static final int GENERAL_RSP_RESULT_SUCCESS = 0x00; // ³É¹¦/È·ÈÏ
-	public static final int GENERAL_RSP_RESULT_FAILURE = 0x01; // Ê§°Ü
-	public static final int GENERAL_RSP_RESULT_MSG_ERROR = 0x02; // ÏûÏ¢ÓĞÎó
-	public static final int GENERAL_RSP_RESULT_NOT_SUPPORT = 0x03; // ²»Ö§³Ö
-	public static final int GENERAL_RSP_RESULT_ALARM_ACK = 0x04; // ±¨¾¯´¦ÀíÈ·ÈÏ
+	public static final int GENERAL_RSP_RESULT_SUCCESS = 0x00; // æˆåŠŸ/ç¡®è®¤
+	public static final int GENERAL_RSP_RESULT_FAILURE = 0x01; // å¤±è´¥
+	public static final int GENERAL_RSP_RESULT_MSG_ERROR = 0x02; // æ¶ˆæ¯æœ‰è¯¯
+	public static final int GENERAL_RSP_RESULT_NOT_SUPPORT = 0x03; // ä¸æ”¯æŒ
+	public static final int GENERAL_RSP_RESULT_ALARM_ACK = 0x04; // æŠ¥è­¦å¤„ç†ç¡®è®¤
 
 	/**
-	 * ÏûÏ¢¶ÔÕÕ±í
+	 * æ¶ˆæ¯å¯¹ç…§è¡¨
 	 */
-	public static final int MSG_ID_TERMINAL_GENERAL_RSP = 0x0001; // ÖÕ¶ËÍ¨ÓÃÓ¦´ğ
-	public static final int MSG_ID_PLATFORM_GENERAL_RSP = 0x8001; // Æ½Ì¨Í¨ÓÃÓ¦´ğ
-	public static final int MSG_ID_TERMINAL_HEARTBEAT_REQ = 0x0002; // ÖÕ¶ËĞÄÌø
-	public static final int MSG_ID_PLATFORM_RETRANSMISSION_REQ = 0x8003; // Æ½Ì¨ÇëÇó²¹´«·Ö°ü
-	public static final int MSG_ID_TERMINAL_REGISTER_REQ = 0x0100; // ÖÕ¶Ë×¢²á
-	public static final int MSG_ID_TERMINAL_REGISTER_RSP = 0x8100; // ÖÕ¶Ë×¢²áÓ¦´ğ
-	public static final int MSG_ID_TERMINAL_UNREGISTER_REQ = 0x0003; // ÖÕ¶Ë×¢Ïú
-	public static final int MSG_ID_TERMINAL_AUTH_REQ = 0x0102; // ÖÕ¶Ë¼øÈ¨
-	public static final int MSG_ID_TERMINAL_PARAM_SETTING_REQ = 0x8103; // Æ½Ì¨ÇëÇóÉèÖÃÖÕ¶Ë²ÎÊı
-	public static final int MSG_ID_TERMINAL_PARAM_QUERY_REQ = 0x8104; // Æ½Ì¨ÇëÇó²éÑ¯ÖÕ¶Ë²ÎÊı
-	public static final int MSG_ID_TERMINAL_PARAM_PARTIAL_QUERY_REQ = 0x8106; // Æ½Ì¨ÇëÇó²éÑ¯Ö¸¶¨ÖÕ¶Ë²ÎÊı
-	public static final int MSG_ID_TERMINAL_PARAM_QUERY_RSP = 0x0104; // ÖÕ¶Ë²ÎÊıÓ¦´ğ
-	public static final int MSG_ID_TERMINAL_COMMAND_REQ = 0x8105; // Æ½Ì¨ÇëÇóÖÕ¶Ë¿ØÖÆ
-	public static final int MSG_ID_TERMINAL_PROPS_QUERY_REQ = 0x8107; // Æ½Ì¨ÇëÇó²éÑ¯ÖÕ¶ËÊôĞÔ
-	public static final int MSG_ID_TERMINAL_PROPS_QUERY_RSP = 0x0107; // ²éÑ¯ÖÕ¶ËÊôĞÔÓ¦´ğ
-	public static final int MSG_ID_TERMINAL_SYSTERM_UPDATE_REQ = 0x8108; // Æ½Ì¨ÏÂ·¢Éı¼¶°ü
-	public static final int MSG_ID_TERMINAL_SYSTERM_UPDATE_RSP = 0x0108; // Éı¼¶½á¹ûÍ¨Öª
+	public static final int MSG_ID_TERMINAL_GENERAL_RSP = 0x0001; // ç»ˆç«¯é€šç”¨åº”ç­”
+	public static final int MSG_ID_PLATFORM_GENERAL_RSP = 0x8001; // å¹³å°é€šç”¨åº”ç­”
+	public static final int MSG_ID_TERMINAL_HEARTBEAT_REQ = 0x0002; // ç»ˆç«¯å¿ƒè·³
+	public static final int MSG_ID_PLATFORM_RETRANSMISSION_REQ = 0x8003; // å¹³å°è¯·æ±‚è¡¥ä¼ åˆ†åŒ…
+	public static final int MSG_ID_TERMINAL_REGISTER_REQ = 0x0100; // ç»ˆç«¯æ³¨å†Œ
+	public static final int MSG_ID_TERMINAL_REGISTER_RSP = 0x8100; // ç»ˆç«¯æ³¨å†Œåº”ç­”
+	public static final int MSG_ID_TERMINAL_UNREGISTER_REQ = 0x0003; // ç»ˆç«¯æ³¨é”€
+	public static final int MSG_ID_TERMINAL_AUTH_REQ = 0x0102; // ç»ˆç«¯é‰´æƒ
+	public static final int MSG_ID_TERMINAL_PARAM_SETTING_REQ = 0x8103; // å¹³å°è¯·æ±‚è®¾ç½®ç»ˆç«¯å‚æ•°
+	public static final int MSG_ID_TERMINAL_PARAM_QUERY_REQ = 0x8104; // å¹³å°è¯·æ±‚æŸ¥è¯¢ç»ˆç«¯å‚æ•°
+	public static final int MSG_ID_TERMINAL_PARAM_PARTIAL_QUERY_REQ = 0x8106; // å¹³å°è¯·æ±‚æŸ¥è¯¢æŒ‡å®šç»ˆç«¯å‚æ•°
+	public static final int MSG_ID_TERMINAL_PARAM_QUERY_RSP = 0x0104; // ç»ˆç«¯å‚æ•°åº”ç­”
+	public static final int MSG_ID_TERMINAL_COMMAND_REQ = 0x8105; // å¹³å°è¯·æ±‚ç»ˆç«¯æ§åˆ¶
+	public static final int MSG_ID_TERMINAL_PROPS_QUERY_REQ = 0x8107; // å¹³å°è¯·æ±‚æŸ¥è¯¢ç»ˆç«¯å±æ€§
+	public static final int MSG_ID_TERMINAL_PROPS_QUERY_RSP = 0x0107; // æŸ¥è¯¢ç»ˆç«¯å±æ€§åº”ç­”
+	public static final int MSG_ID_TERMINAL_SYSTERM_UPDATE_REQ = 0x8108; // å¹³å°ä¸‹å‘å‡çº§åŒ…
+	public static final int MSG_ID_TERMINAL_SYSTERM_UPDATE_RSP = 0x0108; // å‡çº§ç»“æœé€šçŸ¥
 
-	public static final int MSG_ID_TERMINAL_LOCATION_REPORT = 0x0200; // Î»ÖÃĞÅÏ¢»ã±¨
-	public static final int MSG_ID_TERMINAL_LOCATION_QUERY_REQ = 0x8201; // Î»ÖÃĞÅÏ¢²éÑ¯
-	public static final int MSG_ID_TERMINAL_LOCATION_QUERY_RSP = 0x0201; // Î»ÖÃĞÅÏ¢²éÑ¯Ó¦´ğ
-	public static final int MSG_ID_TERMINAL_LOCATION_TRACKING_REQ = 0x8202; // ÁÙÊ±Î»ÖÃĞÅÏ¢¸ú×Ù¿ØÖÆ
-	public static final int MSG_ID_PLATFORM_MANUAL_CONFIRMED_ALARM_REQ = 0x8203; // ÈË¹¤È·ÈÏ±¨¾¯ĞÅÏ¢
+	public static final int MSG_ID_TERMINAL_LOCATION_REPORT = 0x0200; // ä½ç½®ä¿¡æ¯æ±‡æŠ¥
+	public static final int MSG_ID_TERMINAL_LOCATION_QUERY_REQ = 0x8201; // ä½ç½®ä¿¡æ¯æŸ¥è¯¢
+	public static final int MSG_ID_TERMINAL_LOCATION_QUERY_RSP = 0x0201; // ä½ç½®ä¿¡æ¯æŸ¥è¯¢åº”ç­”
+	public static final int MSG_ID_TERMINAL_LOCATION_TRACKING_REQ = 0x8202; // ä¸´æ—¶ä½ç½®ä¿¡æ¯è·Ÿè¸ªæ§åˆ¶
+	public static final int MSG_ID_PLATFORM_MANUAL_CONFIRMED_ALARM_REQ = 0x8203; // äººå·¥ç¡®è®¤æŠ¥è­¦ä¿¡æ¯
 
-	public static final int MSG_ID_PLATFORM_TEXT_MESSAGE_REQ = 0x8300; // ĞÅÏ¢ÎÄ±¾ÏÂ·¢
-	public static final int MSG_ID_PLATFORM_SELECTABLE_EVENT_MAINT_REQ = 0x8301; // ÊÂ¼şÉèÖÃ
-	public static final int MSG_ID_TERMINAL_SELECTABLE_EVENT_REPORT_REQ = 0x0301; // ÊÂ¼ş±¨¸æ
-	public static final int MSG_ID_PLATFORM_QUESTION_MESSAGE_REQ = 0x8302; // ÌáÎÊÏÂ·¢
-	public static final int MSG_ID_TERMINAL_QUESTION_ANSWER_RSP = 0x0302; // ÌáÎÊÓ¦´ğ
-	public static final int MSG_ID_PLATFORM_INFORMATION_MENU_MAINT_REQ = 0x8303; // ĞÅÏ¢µã²¥²Ëµ¥ÉèÖÃ
-	public static final int MSG_ID_TERMINAL_INFORMATION_MENU_MAINT_RSP = 0x0303; // ĞÅÏ¢µã²¥/È¡Ïû
-	public static final int MSG_ID_PLATFORM_INFORMATION_REQ = 0x8304; // ĞÅÏ¢·şÎñ
+	public static final int MSG_ID_PLATFORM_TEXT_MESSAGE_REQ = 0x8300; // ä¿¡æ¯æ–‡æœ¬ä¸‹å‘
+	public static final int MSG_ID_PLATFORM_SELECTABLE_EVENT_MAINT_REQ = 0x8301; // äº‹ä»¶è®¾ç½®
+	public static final int MSG_ID_TERMINAL_SELECTABLE_EVENT_REPORT_REQ = 0x0301; // äº‹ä»¶æŠ¥å‘Š
+	public static final int MSG_ID_PLATFORM_QUESTION_MESSAGE_REQ = 0x8302; // æé—®ä¸‹å‘
+	public static final int MSG_ID_TERMINAL_QUESTION_ANSWER_RSP = 0x0302; // æé—®åº”ç­”
+	public static final int MSG_ID_PLATFORM_INFORMATION_MENU_MAINT_REQ = 0x8303; // ä¿¡æ¯ç‚¹æ’­èœå•è®¾ç½®
+	public static final int MSG_ID_TERMINAL_INFORMATION_MENU_MAINT_RSP = 0x0303; // ä¿¡æ¯ç‚¹æ’­/å–æ¶ˆ
+	public static final int MSG_ID_PLATFORM_INFORMATION_REQ = 0x8304; // ä¿¡æ¯æœåŠ¡
 
-	public static final int MSG_ID_PLATFORM_TELPHONE_CALLBACK_REQ = 0x8400; // µç»°»Ø°Î
-	public static final int MSG_ID_PLATFORM_TELPHONE_BOOK_REQ = 0x8401; // µç»°±¾
+	public static final int MSG_ID_PLATFORM_TELPHONE_CALLBACK_REQ = 0x8400; // ç”µè¯å›æ‹”
+	public static final int MSG_ID_PLATFORM_TELPHONE_BOOK_REQ = 0x8401; // ç”µè¯æœ¬
 
-	public static final int MSG_ID_PLATFORM_VEHICLE_CONTROL_REQ = 0x8500; // ³µÁ¾¿ØÖÆ
-	public static final int MSG_ID_TERMINAL_VEHICLE_CONTROL_RSP = 0x0500; // ³µÁ¾¿ØÖÆÓ¦´ğ
+	public static final int MSG_ID_PLATFORM_VEHICLE_CONTROL_REQ = 0x8500; // è½¦è¾†æ§åˆ¶
+	public static final int MSG_ID_TERMINAL_VEHICLE_CONTROL_RSP = 0x0500; // è½¦è¾†æ§åˆ¶åº”ç­”
 
-	public static final int MSG_ID_PLATFORM_CIRCLE_AREA_UPDATE_REQ = 0x8600; // ÉèÖÃÔ²ĞÎÇøÓò
-	public static final int MSG_ID_PLATFORM_CIRCLE_AREA_REMOVE_REQ = 0x8601; // É¾³ıÔ²ĞÎÇøÓò
-	public static final int MSG_ID_PLATFORM_RECTANGLE_AREA_UPDATE_REQ = 0x8602; // ÉèÖÃ¾ØĞÎÇøÓò
-	public static final int MSG_ID_PLATFORM_RECTANGLE_AREA_REMOVE_REQ = 0x8603; // É¾³ı¾ØĞÎÇøÓò
-	public static final int MSG_ID_PLATFORM_POLYGON_AREA_UPDATE_REQ = 0x8604; // ÉèÖÃ¶à±ßĞÎÇøÓò
-	public static final int MSG_ID_PLATFORM_POLYGON_AREA_REMOVE_REQ = 0x8605; // É¾³ı¶à±ßĞÎÇøÓò
-	public static final int MSG_ID_PLATFORM_ROAD_LINE_UPDATE_REQ = 0x8606; // ÉèÖÃÏßÂ·
-	public static final int MSG_ID_PLATFORM_ROAD_LINE_REMOVE_REQ = 0x8607; // É¾³ıÏßÂ·
+	public static final int MSG_ID_PLATFORM_CIRCLE_AREA_UPDATE_REQ = 0x8600; // è®¾ç½®åœ†å½¢åŒºåŸŸ
+	public static final int MSG_ID_PLATFORM_CIRCLE_AREA_REMOVE_REQ = 0x8601; // åˆ é™¤åœ†å½¢åŒºåŸŸ
+	public static final int MSG_ID_PLATFORM_RECTANGLE_AREA_UPDATE_REQ = 0x8602; // è®¾ç½®çŸ©å½¢åŒºåŸŸ
+	public static final int MSG_ID_PLATFORM_RECTANGLE_AREA_REMOVE_REQ = 0x8603; // åˆ é™¤çŸ©å½¢åŒºåŸŸ
+	public static final int MSG_ID_PLATFORM_POLYGON_AREA_UPDATE_REQ = 0x8604; // è®¾ç½®å¤šè¾¹å½¢åŒºåŸŸ
+	public static final int MSG_ID_PLATFORM_POLYGON_AREA_REMOVE_REQ = 0x8605; // åˆ é™¤å¤šè¾¹å½¢åŒºåŸŸ
+	public static final int MSG_ID_PLATFORM_ROAD_LINE_UPDATE_REQ = 0x8606; // è®¾ç½®çº¿è·¯
+	public static final int MSG_ID_PLATFORM_ROAD_LINE_REMOVE_REQ = 0x8607; // åˆ é™¤çº¿è·¯
 
-	public static final int MSG_ID_PLATFORM_DRIVE_RECORD_COLLECT_REQ = 0x8700; // ĞĞÊ»¼ÇÂ¼Êı¾İ²É¼¯ÃüÁî
-	public static final int MSG_ID_TERMINAL_DRIVE_RECORD_UPLOAD_RSP = 0x0700; // ĞĞÊ»¼ÇÂ¼Êı¾İ²É¼¯ÃüÁî
-	public static final int MSG_ID_PLATFORM_DRIVE_RECORD_PARAM_REQ = 0x8701; // ĞĞÊ»¼ÇÂ¼Êı¾İÏÂ´«ÃüÁî
-	public static final int MSG_ID_TERMINAL_EWAYBILL_REPORT_REQ = 0x0701; // µç×ÓÔËµ¥ÉÏ±¨
-	public static final int MSG_ID_PLATFORM_DRIVER_REPORT_REQ = 0x8702; // ÉÏ´«¼İÊ»Ô±ĞÅÏ¢
-	public static final int MSG_ID_TERMINAL_DRIVER_REPORT_REQ = 0x0702; // ¼İÊ»Ô±ĞÅÏ¢
+	public static final int MSG_ID_PLATFORM_DRIVE_RECORD_COLLECT_REQ = 0x8700; // è¡Œé©¶è®°å½•æ•°æ®é‡‡é›†å‘½ä»¤
+	public static final int MSG_ID_TERMINAL_DRIVE_RECORD_UPLOAD_RSP = 0x0700; // è¡Œé©¶è®°å½•æ•°æ®é‡‡é›†å‘½ä»¤
+	public static final int MSG_ID_PLATFORM_DRIVE_RECORD_PARAM_REQ = 0x8701; // è¡Œé©¶è®°å½•æ•°æ®ä¸‹ä¼ å‘½ä»¤
+	public static final int MSG_ID_TERMINAL_EWAYBILL_REPORT_REQ = 0x0701; // ç”µå­è¿å•ä¸ŠæŠ¥
+	public static final int MSG_ID_PLATFORM_DRIVER_REPORT_REQ = 0x8702; // ä¸Šä¼ é©¾é©¶å‘˜ä¿¡æ¯
+	public static final int MSG_ID_TERMINAL_DRIVER_REPORT_REQ = 0x0702; // é©¾é©¶å‘˜ä¿¡æ¯
 
-	public static final int MSG_ID_TERMINAL_LOCATION_BATCH_REPORT = 0x0704; // ÅúÁ¿ĞÅÏ¢ĞÅÏ¢
-	public static final int MSG_ID_TERMINAL_CANBUS_DATA_REPORT = 0x0705; // CANĞÅÏ¢ĞÅÏ¢
+	public static final int MSG_ID_TERMINAL_LOCATION_BATCH_REPORT = 0x0704; // æ‰¹é‡ä¿¡æ¯ä¿¡æ¯
+	public static final int MSG_ID_TERMINAL_CANBUS_DATA_REPORT = 0x0705; // CANä¿¡æ¯ä¿¡æ¯
 
-	public static final int MSG_ID_TERMINAL_MULTIMEDIA_EVENT_REPORT = 0x0800; // ¶àÃ½ÌåĞÅÏ¢
-	public static final int MSG_ID_TERMINAL_MULTIMEDIA_DATA_REPORT = 0x0801; // ¶àÃ½ÌåÊı¾İ
-	public static final int MSG_ID_PLATFORM_MULTIMEDIA_DATA_REPORT_RSP = 0x8800; // ¶àÃ½ÌåÊı¾İÉÏ´«Ó¦´ğ
-	public static final int MSG_ID_PLATFORM_CAMERA_TAKE_PHOTO_REQ = 0x8801; // Á¢¼´ÅÄÉã
-	public static final int MSG_ID_TERMINAL_CAMERA_TAKE_PHOTO_RSP = 0x0805; // Á¢¼´ÅÄÉãÓ¦´ğ
-	public static final int MSG_ID_PLATFORM_STORED_MULTIMEDIA_QUERY_REQ = 0x8802; // ´æ´¢¶àÃ½Ìå²éÑ¯
-	public static final int MSG_ID_TERMINAL_STORED_MULTIMEDIA_QUERY_RSP = 0x0802; // ²éÑ¯Ó¦´ğ
-	public static final int MSG_ID_PLATFORM_STORED_MULTIMEDIA_UPLOAD_REQ = 0x8803; // ´æ´¢¶àÃ½ÌåÉÏ´«
-	public static final int MSG_ID_PLATFORM_RECORDER_RECORD_REQ = 0x8804; // Â¼Òô¿ªÊ¼
-	public static final int MSG_ID_PLATFORM_STORED_MULTIMEDIA_UPLOAD_EXACT_REQ = 0x8805; // µ¥Ìõ´æ´¢¶àÃ½ÌåÉÏ´«
+	public static final int MSG_ID_TERMINAL_MULTIMEDIA_EVENT_REPORT = 0x0800; // å¤šåª’ä½“ä¿¡æ¯
+	public static final int MSG_ID_TERMINAL_MULTIMEDIA_DATA_REPORT = 0x0801; // å¤šåª’ä½“æ•°æ®
+	public static final int MSG_ID_PLATFORM_MULTIMEDIA_DATA_REPORT_RSP = 0x8800; // å¤šåª’ä½“æ•°æ®ä¸Šä¼ åº”ç­”
+	public static final int MSG_ID_PLATFORM_CAMERA_TAKE_PHOTO_REQ = 0x8801; // ç«‹å³æ‹æ‘„
+	public static final int MSG_ID_TERMINAL_CAMERA_TAKE_PHOTO_RSP = 0x0805; // ç«‹å³æ‹æ‘„åº”ç­”
+	public static final int MSG_ID_PLATFORM_STORED_MULTIMEDIA_QUERY_REQ = 0x8802; // å­˜å‚¨å¤šåª’ä½“æŸ¥è¯¢
+	public static final int MSG_ID_TERMINAL_STORED_MULTIMEDIA_QUERY_RSP = 0x0802; // æŸ¥è¯¢åº”ç­”
+	public static final int MSG_ID_PLATFORM_STORED_MULTIMEDIA_UPLOAD_REQ = 0x8803; // å­˜å‚¨å¤šåª’ä½“ä¸Šä¼ 
+	public static final int MSG_ID_PLATFORM_RECORDER_RECORD_REQ = 0x8804; // å½•éŸ³å¼€å§‹
+	public static final int MSG_ID_PLATFORM_STORED_MULTIMEDIA_UPLOAD_EXACT_REQ = 0x8805; // å•æ¡å­˜å‚¨å¤šåª’ä½“ä¸Šä¼ 
 
-	public static final int MSG_ID_PLATFORM_DATA_SENDDOWN_REQ = 0x8900; // ÏÂĞĞÍ¸´«
-	public static final int MSG_ID_TERMINAL_DATA_UPLOAD_REQ = 0x0900; // ÉÏĞĞÍ¸´«
-	public static final int MSG_ID_TERMINAL_DATA_COMPRESS_UPLOAD = 0x0901; // Ñ¹ËõÉÏ±¨
-	public static final int MSG_ID_PLATFORM_RSA_PUBLIC_KEY_REQ = 0x8A00; // Æ½Ì¨RSA¹«Ô¿
-	public static final int MSG_ID_TERMINAL_RSA_PUBLIC_KEY_REQ = 0x0A00; // ÖÕ¶ËRSA¹«Ô¿
+	public static final int MSG_ID_PLATFORM_DATA_SENDDOWN_REQ = 0x8900; // ä¸‹è¡Œé€ä¼ 
+	public static final int MSG_ID_TERMINAL_DATA_UPLOAD_REQ = 0x0900; // ä¸Šè¡Œé€ä¼ 
+	public static final int MSG_ID_TERMINAL_DATA_COMPRESS_UPLOAD = 0x0901; // å‹ç¼©ä¸ŠæŠ¥
+	public static final int MSG_ID_PLATFORM_RSA_PUBLIC_KEY_REQ = 0x8A00; // å¹³å°RSAå…¬é’¥
+	public static final int MSG_ID_TERMINAL_RSA_PUBLIC_KEY_REQ = 0x0A00; // ç»ˆç«¯RSAå…¬é’¥
 
 }

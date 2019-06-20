@@ -10,7 +10,7 @@ import customer.server.model.PacketData;
 import customer.server.process.msg.detail.HeartBitMessage;
 
 /**
- * ÏûÏ¢¹¤³§
+ * é”Ÿæ–¤æ‹·æ¯é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
  * 
  * @author Administrator
  *
@@ -32,7 +32,7 @@ public class MessageFactory {
     }
 
     /**
-     * ²úÆ·±í
+     * é”Ÿæ–¤æ‹·å“é”Ÿæ–¤æ‹·
      */
     private Map<Integer, Class<? extends AbstractMessage>> dic = new HashMap<Integer, Class<? extends AbstractMessage>>() {
 	{

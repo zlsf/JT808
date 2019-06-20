@@ -11,7 +11,7 @@ import Utils.ByteArrayUtil;
 import Utils.JT808Constant;
 
 /**
- * ÖÕ¶Ë×¢²áÓ¦´ð
+ * ç»ˆç«¯æ³¨å†Œåº”ç­”
  * 
  * @author zlsf
  *

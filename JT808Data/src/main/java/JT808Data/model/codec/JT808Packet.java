@@ -6,7 +6,7 @@ import java.nio.ByteBuffer;
 import Utils.ByteArrayUtil;
 
 /**
- * 808µÄ°üĞ­Òé
+ * 808çš„åŒ…åè®®
  * @author Administrator
  *
  */
@@ -94,7 +94,7 @@ public class JT808Packet {
 		private int msgNo;
 
 		private int subpacketCount = 0;
-		private int subpacketNo = 1; // ´Ó1¿ªÊ¼ 1-index
+		private int subpacketNo = 1; // ä»1å¼€å§‹ 1-index
 
 		Header() {
 		}

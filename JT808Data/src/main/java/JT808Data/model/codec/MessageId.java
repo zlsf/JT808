@@ -2,14 +2,14 @@
 package JT808Data.model.codec;
 
 /**
- * ÏûÏ¢ID·â×°
+ * æ¶ˆæ¯IDå°è£…
  */
 public class MessageId {
 
-	/** idºÅ */
+	/** idå· */
 	private final int msgId;
 
-	/** ÖÕ¶ËÊÖ»úºÅ */
+	/** ç»ˆç«¯æ‰‹æœºå· */
 	private final TerminalId terminalId;
 
 	public MessageId(int msgId, TerminalId terminalId) {
@@ -47,7 +47,7 @@ public class MessageId {
 		return result;
 	}
 
-	/* ÅĞµÈ
+	/* åˆ¤ç­‰
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override

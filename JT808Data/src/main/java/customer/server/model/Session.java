@@ -5,7 +5,7 @@ import java.net.SocketAddress;
 import io.netty.channel.Channel;
 
 /**
- * Sessionģ��
+ * Session模锟斤拷
  *
  * @author
  * 
@@ -79,7 +79,7 @@ public class Session {
 	}
 
 	/**
-	 * ��Ϣ�ź�����
+	 * 锟斤拷息锟脚猴拷锟斤拷锟斤拷
 	 *
 	 * @return
 	 */
@@ -90,7 +90,7 @@ public class Session {
 	}
 
 	/**
-	 * ��ȡsession��Զ�̵�ַ
+	 * 锟斤拷取session锟斤拷远锟教碉拷址
 	 *
 	 * @return the remote
 	 */
@@ -99,7 +99,7 @@ public class Session {
 	}
 
 	/**
-	 * ��ȡͨ����
+	 * 锟斤拷取通锟斤拷锟斤拷
 	 *
 	 * @param channel the channel
 	 * @return the string
@@ -109,7 +109,7 @@ public class Session {
 	}
 
 	/**
-	 * ����Session
+	 * 锟斤拷锟斤拷Session
 	 *
 	 * @param channel the channel
 	 * @return the session
@@ -122,7 +122,7 @@ public class Session {
 	}
 
 	/* 
-	 * ��дhashcode
+	 * 锟斤拷写hashcode
 	 */
 	@Override
 	public int hashCode() {
@@ -133,7 +133,7 @@ public class Session {
 	}
 
 	/* 
-	 * �б����
+	 * 锟叫憋拷锟斤拷锟�
 	 */
 	@Override
 	public boolean equals(Object obj) {

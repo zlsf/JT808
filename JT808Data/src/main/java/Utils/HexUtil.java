@@ -2,7 +2,7 @@ package Utils;
 
 
 /**
- * 16½øÖÆ×ª»»¹¤¾ßÀà
+ * 16è¿›åˆ¶è½¬æ¢å·¥å…·ç±»
  * @author    ligenglin1
  * 
  * <p>Modification History:</p>
@@ -17,8 +17,8 @@ public final class HexUtil {
 			'F' };
 
 	/**
-	 * 4×Ö½ÚÎŞ·ûºÅÕûÊı×ª16½øÖÆ, Î»Êı²»¹»Ç°Ãæ²¹0
-	 * @param data ÎŞ·ûºÅÕûÊı
+	 * 4å­—èŠ‚æ— ç¬¦å·æ•´æ•°è½¬16è¿›åˆ¶, ä½æ•°ä¸å¤Ÿå‰é¢è¡¥0
+	 * @param data æ— ç¬¦å·æ•´æ•°
 	 * @return
 	 */
 	public static String unsignedIntegerToHexString(long data) {
@@ -33,8 +33,8 @@ public final class HexUtil {
 	}
 
 	/**
-	 * 2×Ö½ÚÎŞ·ûºÅÕûÊı×ª16½øÖÆ, Î»Êı²»¹»Ç°Ãæ²¹0
-	 * @param data ÎŞ·ûºÅÕûÊı
+	 * 2å­—èŠ‚æ— ç¬¦å·æ•´æ•°è½¬16è¿›åˆ¶, ä½æ•°ä¸å¤Ÿå‰é¢è¡¥0
+	 * @param data æ— ç¬¦å·æ•´æ•°
 	 * @return
 	 */
 	public static String unsignedShortToHexString(int data) {
@@ -49,26 +49,26 @@ public final class HexUtil {
 	}
 
 	/**
-	 * µ¥×Ö½Ú×ª16½øÖÆ±íÊ¾
+	 * å•å­—èŠ‚è½¬16è¿›åˆ¶è¡¨ç¤º
 	 * @param data
 	 * @return
 	 */
 	public static String byteToHexString(byte data) {
 		char[] buf = new char[2];
-		buf[0] = digits[(0xf0 & data) >>> 4]; // ¸ßÎ»
+		buf[0] = digits[(0xf0 & data) >>> 4]; // é«˜ä½
 		buf[1] = digits[0x0f & data];
 		return new String(buf);
 	}
 
 	/**
-	 * ×Ö½ÚÊı×é×ª16½øÖÆ±íÊ¾
+	 * å­—èŠ‚æ•°ç»„è½¬16è¿›åˆ¶è¡¨ç¤º
 	 * @param data
 	 * @return
 	 */
 	public static String byteArrayToHexString(byte[] data) {
 		char[] buf = new char[data.length << 1];
 		for (int i = 0, j = 0; i < data.length; i++) {
-			buf[j++] = digits[(0xf0 & data[i]) >>> 4]; // ¸ßÎ»
+			buf[j++] = digits[(0xf0 & data[i]) >>> 4]; // é«˜ä½
 			buf[j++] = digits[0x0f & data[i]];
 		}
 		return new String(buf);

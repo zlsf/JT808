@@ -16,14 +16,14 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 /**
- * ÏûÏ¢´¦Àí.
+ * æ¶ˆæ¯å¤„ç†.
  */
 public class DataServiceHandlerGov809 extends SimpleChannelInboundHandler<ByteBuf> {
 
-	/** ÈÕÖ¾. */
+	/** æ—¥å¿—. */
 	private final Logger log = LoggerFactory.getLogger(DataServiceHandlerGov809.class);
 
-	/** Ïß³Ì³Ø. */
+	/** çº¿ç¨‹æ± . */
 	private ExecutorService taskExecutor = Executors.newCachedThreadPool();
 
 	private NettyChannelConnection809Gov connection;
@@ -48,22 +48,22 @@ public class DataServiceHandlerGov809 extends SimpleChannelInboundHandler<ByteBu
 	}
 
 	/*
-	 * Á´½Ó³É¹¦
+	 * é“¾æ¥æˆåŠŸ
 	 */
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
 		this.connection = new NettyChannelConnection809Gov(ctx.channel());
 		connection.setSession(session);
-		log.debug("½¨Á¢Á´½Ó: {}", session);
+		log.debug("å»ºç«‹é“¾æ¥: {}", session);
 	}
 
 	/*
-	 * Á´½Ó¶Ï¿ªµÄÊ±ºò
+	 * é“¾æ¥æ–­å¼€çš„æ—¶å€™
 	 */
 	@Override
 	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
 		connectionManager.removeMainlinkConnection(connection);
-		log.debug("Á´½Ó¶Ï¿ª: {}", session);
+		log.debug("é“¾æ¥æ–­å¼€: {}", session);
 	}
 
 	@Override

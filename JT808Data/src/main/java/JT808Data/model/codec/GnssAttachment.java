@@ -6,7 +6,7 @@ import java.util.List;
 import Utils.ByteArrayUtil;
 
 /**
- * 定位附加信息
+ * 瀹氫綅闄勫姞淇℃伅
  * 
  * @author cuillgln
  *
@@ -40,7 +40,7 @@ public abstract class GnssAttachment {
 	}
 
 	/**
-	 * 生成附件
+	 * 鐢熸垚闄勪欢
 	 * 
 	 * @param bytes
 	 * @return

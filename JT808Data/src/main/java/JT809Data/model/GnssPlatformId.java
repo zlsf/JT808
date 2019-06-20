@@ -1,7 +1,7 @@
 package JT809Data.model;
 
 /**
- * ƽ̨ID
+ * 平台ID
  * 
  * @author cuillgln
  *

@@ -26,25 +26,25 @@ import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
 
 /**
- * Ö÷·şÎñ¿ØÖÆÆ÷. Ö÷Òª¸ºÔğÆô¶¯·şÎñ¶Ë³ÌĞò
+ * ä¸»æœåŠ¡æ§åˆ¶å™¨. ä¸»è¦è´Ÿè´£å¯åŠ¨æœåŠ¡ç«¯ç¨‹åº
  */
 public final class DataServerGov809 implements Runnable {
 
-	/** ÈÕÖ¾. */
+	/** æ—¥å¿—. */
 	private Logger log = LoggerFactory.getLogger(DataServerGov809.class);
-	/** Ïß³Ì³Ø. */
+	/** çº¿ç¨‹æ± . */
 	private ExecutorService serverExecutor = Executors.newSingleThreadExecutor();
 
 	/** The future. */
 	private Future<?> future;
 
-	/** ¶Ë¿ÚºÅ. */
+	/** ç«¯å£å·. */
 	private int port = 8891;
 
-	/** ÆôÍ£±ê¼Ç. */
+	/** å¯åœæ ‡è®°. */
 	private volatile boolean running = false;
 
-	/** Í¬²½Ëø. */
+	/** åŒæ­¥é”. */
 	private static Object locker = new Object();
 
 	/**
@@ -67,22 +67,22 @@ public final class DataServerGov809 implements Runnable {
 	}
 
 	/**
-	 * Æô¶¯·şÎñ.
+	 * å¯åŠ¨æœåŠ¡.
 	 */
 	public void start() {
-		log.info("Æô¶¯·şÎñ......");
+		log.info("å¯åŠ¨æœåŠ¡......");
 		synchronized (locker) {
 			this.running = true;
 			future = serverExecutor.submit(this);
 		}
-		log.info("Æô¶¯·şÎñ ³É¹¦......");
+		log.info("å¯åŠ¨æœåŠ¡ æˆåŠŸ......");
 	}
 
 	/**
-	 * Í£Ö¹·şÎñ.
+	 * åœæ­¢æœåŠ¡.
 	 */
 	public void stop() {
-		log.info("Í£Ö¹ ·şÎñ......");
+		log.info("åœæ­¢ æœåŠ¡......");
 		synchronized (locker) {
 			if (!running)
 				return;
@@ -94,11 +94,11 @@ public final class DataServerGov809 implements Runnable {
 			future = null;
 			this.running = false;
 		}
-		log.info("Í£Ö¹·şÎñ  ³É¹¦......");
+		log.info("åœæ­¢æœåŠ¡  æˆåŠŸ......");
 	}
 
 	/**
-	 * ·şÎñÆô¶¯
+	 * æœåŠ¡å¯åŠ¨
 	 */
 	@Override
 	public void run() {
@@ -121,7 +121,7 @@ public final class DataServerGov809 implements Runnable {
 	}
 
 	/**
-	 * Í¨µÀ³õÊ¼»¯
+	 * é€šé“åˆå§‹åŒ–
 	 */
 	private ChannelInitializer<SocketChannel> channelnit = new ChannelInitializer<SocketChannel>() {
 
@@ -139,7 +139,7 @@ public final class DataServerGov809 implements Runnable {
 		return new Session809Gov(GnssPlatformIdGov809.build(1L), new byte[1]);
 	}
 	/**
-	 * Í³Ò»·¢ËÍÊı¾İ
+	 * ç»Ÿä¸€å‘é€æ•°æ®
 	 * 
 	 * @param channel
 	 * @param data
@@ -154,7 +154,7 @@ public final class DataServerGov809 implements Runnable {
 			}
 			return true;
 		} catch (InterruptedException e) {
-			log.error("·¢ËÍÊı¾İÒì³£:{}", future.cause());
+			log.error("å‘é€æ•°æ®å¼‚å¸¸:{}", future.cause());
 			return false;
 		}
 	}

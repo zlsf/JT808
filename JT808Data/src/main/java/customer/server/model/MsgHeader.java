@@ -21,34 +21,34 @@ package customer.server.model;
  */
 public class MsgHeader {
 
-    /** ÏûÏ¢ID */
+    /** é”Ÿæ–¤æ‹·æ¯ID */
     private int msgId;
 
-    /** ÏûÏ¢ÌåÊôĞÔ */
+    /** é”Ÿæ–¤æ‹·æ¯é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹· */
     private int msgBodyPropsField;
 
-    /** ÏûÏ¢³¤¶È */
+    /** é”Ÿæ–¤æ‹·æ¯é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹· */
     private int msgLength;
 
-    /** ¼ÓÃÜÀàĞÍ */
+    /** é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹· */
     private int encryptionType;
 
-    /** ÊÇ·ñ·Ö°ü */
+    /** é”Ÿè§’å‡¤æ‹·èŒé”Ÿï¿½ */
     private boolean hasSubpackage;
 
     /** The reserved bit. */
     private int reservedBit;
 
-    /** Éè±¸ID */
+    /** é”Ÿå€Ÿå¤‡ID */
     private DeviceId deviceId;
 
-    /** ÏûÏ¢ºÅ */
+    /** é”Ÿæ–¤æ‹·æ¯é”Ÿæ–¤æ‹· */
     private int msgNo;
 
-    /** ËùÓĞ·Ö°ü */
+    /** é”Ÿæ–¤æ‹·é”Ÿå«åˆ†å¸®æ‹· */
     private int totalSubpackage;
 
-    /** ·Ö°üºÅ */
+    /** é”Ÿè¡—å¸®æ‹·é”Ÿæ–¤æ‹· */
     private int subpackageNo;
 
     /**
@@ -99,7 +99,7 @@ public class MsgHeader {
     }
 
     /**
-     * ÏûÏ¢ÌåÊôĞÔ
+     * é”Ÿæ–¤æ‹·æ¯é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
      *
      * @param msgBodyPropsField
      *            the new msg body props field
@@ -113,7 +113,7 @@ public class MsgHeader {
     }
 
     /**
-     * ÏûÏ¢³¤¶È
+     * é”Ÿæ–¤æ‹·æ¯é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
      *
      * @return the msg length
      */

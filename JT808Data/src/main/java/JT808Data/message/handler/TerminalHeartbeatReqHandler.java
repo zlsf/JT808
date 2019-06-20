@@ -8,7 +8,7 @@ import Utils.JT808Constant;
 
 
 /**
- * ĞÄÌø°ü´¦Àí
+ * å¿ƒè·³åŒ…å¤„ç†
  *
  */
 public class TerminalHeartbeatReqHandler implements InboundMessageHandler {

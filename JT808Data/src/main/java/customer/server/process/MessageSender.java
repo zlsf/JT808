@@ -32,7 +32,7 @@ public class MessageSender {
     }
 
     /**
-     * ���͵��豸
+     * 锟斤拷锟酵碉拷锟借备
      * 
      * @param channel
      * @param data
@@ -47,7 +47,7 @@ public class MessageSender {
     }
 
     /**
-     * ��ȡ��Ϣ��
+     * 锟斤拷取锟斤拷息锟斤拷
      * 
      * @param channel
      * @return
@@ -61,14 +61,14 @@ public class MessageSender {
     }
 
     /**
-     * ����:��¼
+     * 锟斤拷锟斤拷:锟斤拷录
      * 
      * @param data
      * @throws InterruptedException
      */
     private void processUpLoginReqMsg(AbstractMessage data) throws InterruptedException {
-	log.debug("�豸��¼��{}", data);
-	System.out.println("�豸��½.....");
+	log.debug("锟借备锟斤拷录锟斤拷{}", data);
+	System.out.println("锟借备锟斤拷陆.....");
 	String sessionId = Session.buildId(data.getChannel());
 	Session session = SessionManager.getInstance().findBySessionId(sessionId);
 	if (session == null) {
@@ -81,7 +81,7 @@ public class MessageSender {
     }
 
     /**
-     * ���У�һ����ϢӦ��
+     * 锟斤拷锟叫ｏ拷一锟斤拷锟斤拷息应锟斤拷
      * 
      * @param data
      * @throws InterruptedException

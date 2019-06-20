@@ -44,7 +44,7 @@ public class SessionManager {
     }
 
     /**
-     * ËùÓĞÉè±¸ID
+     * é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿå€Ÿå¤‡ID
      *
      * @return the all stop ids
      */
@@ -53,7 +53,7 @@ public class SessionManager {
     }
 
     /**
-     * ÊÇ·ñ°üº¬ÁËSessionID
+     * é”Ÿè§’å‡¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”ŸçµŠessionID
      *
      * @param sessionId
      *            the session id
@@ -64,7 +64,7 @@ public class SessionManager {
     }
 
     /**
-     * ÊÇ·ñ°üº¬ÁËSession
+     * é”Ÿè§’å‡¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”ŸçµŠession
      *
      * @param session
      *            the session
@@ -75,7 +75,7 @@ public class SessionManager {
     }
 
     /**
-     * ¸ù¾İsessionID»ñÈ¡ Session
+     * é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·sessionIDé”Ÿæ–¤æ‹·å– Session
      *
      * @param sessionId
      *            the session id
@@ -86,7 +86,7 @@ public class SessionManager {
     }
 
     /**
-     * »ñÈ¡Õ¾ÅÆID
+     * é”Ÿæ–¤æ‹·å–ç«™é”Ÿæ–¤æ‹·ID
      *
      * @param stopId
      *            the stop id
@@ -101,7 +101,7 @@ public class SessionManager {
     }
 
     /**
-     * Ìí¼Ó
+     * é”Ÿæ–¤æ‹·é”Ÿï¿½
      *
      * @param sessionId
      *            the session id
@@ -117,7 +117,7 @@ public class SessionManager {
     }
 
     /**
-     * ÒÆ³ı
+     * é”Ÿç‹¡ç­¹æ‹·
      *
      * @param sessionId
      *            the session id

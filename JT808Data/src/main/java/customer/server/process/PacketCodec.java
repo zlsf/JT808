@@ -17,7 +17,7 @@ public class PacketCodec {
     private static final Logger log = LoggerFactory.getLogger(PacketCodec.class);
 
     /**
-     * ��ת�崦��
+     * 锟斤拷转锟藉处锟斤拷
      * 
      * @param frame
      * @return
@@ -47,7 +47,7 @@ public class PacketCodec {
     }
 
     /**
-     * ֡�� ת��
+     * 帧锟斤拷 转锟斤拷
      * 
      * @param data
      * @return
@@ -66,13 +66,13 @@ public class PacketCodec {
 	    pd.setMsgBody(bodyBytes);
 	    pd.setChecksum(data[data.length - 1] & 0xff);
 
-	    // У��
+	    // 校锟斤拷
 	    if (header.getMsgLength() != data.length) {
-		log.warn("��Ϣ������ʵ�ʳ��Ȳ���{}!={}", header.getMsgLength(), data.length);
+		log.warn("锟斤拷息锟斤拷锟斤拷锟斤拷实锟绞筹拷锟饺诧拷锟斤拷{}!={}", header.getMsgLength(), data.length);
 	    }
 	    int calChecksum = calculateChecksum(data, 0, data.length - 1);
 	    if (calChecksum != pd.getChecksum()) {
-		log.warn("��ϢУ������ʵ�ʼ���ֵ{}!={}", pd.getChecksum(), calChecksum);
+		log.warn("锟斤拷息校锟斤拷锟斤拷锟斤拷实锟绞硷拷锟斤拷值{}!={}", pd.getChecksum(), calChecksum);
 	    }
 	    return pd;
 	} catch (Exception e) {
@@ -81,7 +81,7 @@ public class PacketCodec {
     }
 
     /**
-     * ����ͷ��
+     * 锟斤拷锟斤拷头锟斤拷
      * 
      * @param data
      * @return
@@ -100,7 +100,7 @@ public class PacketCodec {
     }
 
     /**
-     * У����
+     * 校锟斤拷锟斤拷
      * 
      * @param data
      * @param from

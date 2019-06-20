@@ -8,7 +8,7 @@ import Utils.BcdCodeUtil;
 import Utils.ByteArrayUtil;
 
 /**
- * 定位信息
+ * 瀹氫綅淇℃伅
  * 
  * @author cuillgln
  *
@@ -106,7 +106,7 @@ public class GnssPosition {
 	}
 
 	/**
-	 * 生成位置
+	 * 鐢熸垚浣嶇疆
 	 * 
 	 * @param terminalPhone
 	 * @param bytes

@@ -7,7 +7,7 @@ import java.util.TimerTask;
 import JT808Data.DataServer808;
 
 /**
- * ¶¨Ê±Ö´ĞĞµÄÈÎÎñ
+ * å®šæ—¶æ‰§è¡Œçš„ä»»åŠ¡
  * @author Administrator
  *
  */

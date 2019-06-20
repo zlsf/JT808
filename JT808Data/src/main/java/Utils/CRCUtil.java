@@ -2,19 +2,19 @@
 package Utils;
 
 /**
- * CRC-CCITT Ëã·¨Ğ£ÑéÀà
+ * CRC-CCITT ç®—æ³•æ ¡éªŒç±»
  * 
  * @author amadowang
- * @version [°æ±¾ºÅ, Aug 29, 2011]
- * @see [Ïà¹ØÀà/·½·¨]
- * @since [²úÆ·/Ä£¿é°æ±¾]
+ * @version [ç‰ˆæœ¬å·, Aug 29, 2011]
+ * @see [ç›¸å…³ç±»/æ–¹æ³•]
+ * @since [äº§å“/æ¨¡å—ç‰ˆæœ¬]
  * @date 2012-10-24
  */
 public class CRCUtil {
 
 	/*
-	 * CCITT±ê×¼CRC16(1021)ÓàÊı±í CRC16-CCITT ISO HDLC, ITU X.25, x16+x12+x5+1 ¶àÏîÊ½
-	 * ¸ßÎ»ÔÚÏÈÊ±Éú³É¶àÏîÊ½ Gm=0x11021 µÍÎ»ÔÚÏÈÊ±Éú³É¶àÏîÊ½£¬Gm=0x8408 ±¾Àı²ÉÓÃ¸ßÎ»ÔÚÏÈ
+	 * CCITTæ ‡å‡†CRC16(1021)ä½™æ•°è¡¨ CRC16-CCITT ISO HDLC, ITU X.25, x16+x12+x5+1 å¤šé¡¹å¼
+	 * é«˜ä½åœ¨å…ˆæ—¶ç”Ÿæˆå¤šé¡¹å¼ Gm=0x11021 ä½ä½åœ¨å…ˆæ—¶ç”Ÿæˆå¤šé¡¹å¼ï¼ŒGm=0x8408 æœ¬ä¾‹é‡‡ç”¨é«˜ä½åœ¨å…ˆ
 	 */
 	private static int crc16_ccitt_table[] = { 0x0000, 0x1021, 0x2042, 0x3063, 0x4084, 0x50a5, 0x60c6, 0x70e7, 0x8108,
 			0x9129, 0xa14a, 0xb16b, 0xc18c, 0xd1ad, 0xe1ce, 0xf1ef, 0x1231, 0x0210, 0x3273, 0x2252, 0x52b5, 0x4294,
@@ -39,8 +39,8 @@ public class CRCUtil {
 
 	/**
 	 * 
-	 * @param reg_init CRCĞ£ÑéÊ±³õÖµ
-	 * @param message Ğ£ÑéÖµ
+	 * @param reg_init CRCæ ¡éªŒæ—¶åˆå€¼
+	 * @param message æ ¡éªŒå€¼
 	 * @return
 	 */
 	private static int do_crc(int reg_init, byte[] message) {
@@ -52,40 +52,40 @@ public class CRCUtil {
 	}
 
 	/**
-	 * ¸ù¾İÊı¾İÉú³ÉCRCĞ£ÑéÂë
+	 * æ ¹æ®æ•°æ®ç”ŸæˆCRCæ ¡éªŒç 
 	 * 
 	 * @param message
-	 *            byteÊı¾İ
+	 *            byteæ•°æ®
 	 * 
-	 * @return int ·µĞ£ÑéÂë
+	 * @return int è¿”æ ¡éªŒç 
 	 */
 	private static int do_crc(byte[] message) {
-		// ¼ÆËãCRCĞ£ÑéÊ±³õÖµ´Ó0x0000¿ªÊ¼¡£
+		// è®¡ç®—CRCæ ¡éªŒæ—¶åˆå€¼ä»0x0000å¼€å§‹ã€‚
 		int crc_reg = 0x0000;
 		return do_crc(crc_reg, message);
 	}
 
 	/**
-	 * ¼ìÑé·½·¨
+	 * æ£€éªŒæ–¹æ³•
 	 * 
-	 * @param message ÏûÏ¢ÄÚÈİ
-	 * @param crc ¼ìÑéÂëÖµ
+	 * @param message æ¶ˆæ¯å†…å®¹
+	 * @param crc æ£€éªŒç å€¼
 	 * @return
 	 */
 	public static boolean do_crc(byte[] message, byte[] crc) {
-		// ¼ÆËãCRCĞ£ÑéÊ±³õÖµ´Ó0x0000¿ªÊ¼¡£
+		// è®¡ç®—CRCæ ¡éªŒæ—¶åˆå€¼ä»0x0000å¼€å§‹ã€‚
 		int crc_reg = 0x0000;
 		int crc_value = (crc[0] & 0xff) * 256 + (crc[1] & 0xff);
 		return crc_value == do_crc(crc_reg, message);
 	}
 
 	/**
-	 * ¹©db44½á¹¹´úÂëÊ¹ÓÃ,Êı×éºóÁ½Î»ÎªCRC-Ğ£ÑéÂëÖµ
+	 * ä¾›db44ç»“æ„ä»£ç ä½¿ç”¨,æ•°ç»„åä¸¤ä½ä¸ºCRC-æ ¡éªŒç å€¼
 	 * @param messages
 	 * @return
 	 */
 	public static boolean do_crc_db44(byte[] messages) {
-		// ¼ÆËãCRCĞ£ÑéÊ±³õÖµ´Ó0x0000¿ªÊ¼¡£
+		// è®¡ç®—CRCæ ¡éªŒæ—¶åˆå€¼ä»0x0000å¼€å§‹ã€‚
 		byte[] messageArray = new byte[messages.length - 2];
 		byte[] crcArray = new byte[2];
 		System.arraycopy(messages, 0, messageArray, 0, messageArray.length);
@@ -94,9 +94,9 @@ public class CRCUtil {
 	}
 
 	public static void main(String[] args) {
-		// Ò»¸ödb44²âÊÔÑù±¾Êı¾İ
+		// ä¸€ä¸ªdb44æµ‹è¯•æ ·æœ¬æ•°æ®
 		byte p[] = { 71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 68, 31, 32, 0, 1, 2 };
-		int crc = do_crc(p); // ¼ÆËãÇ°Á½Î»µÄCRCÂë
+		int crc = do_crc(p); // è®¡ç®—å‰ä¸¤ä½çš„CRCç 
 		// 65336
 		System.out.println(crc);
 

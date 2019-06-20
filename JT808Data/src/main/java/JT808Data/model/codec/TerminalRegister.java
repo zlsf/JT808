@@ -1,18 +1,18 @@
 package JT808Data.model.codec;
 
 /**
- * ÖÕ¶Ë×¢²á
+ * ç»ˆç«¯æ³¨å†Œ
  * 
  * @author cuillgln
  *
  */
 public class TerminalRegister {
 
-    /**ÖÕ¶ËÊÖ»úºÅ*/
+    /**ç»ˆç«¯æ‰‹æœºå·*/
     private String terminalPhone;
-    /**Ê¡*/
+    /**çœ*/
     private int provinceCode;
-    /**ÊĞ*/
+    /**å¸‚*/
     private int cityCode;
     private String producerId;
     private String terminalModel;

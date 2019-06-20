@@ -3,7 +3,7 @@ package JT808Data.model.codec;
 
 
 /**
- * 出站信息接口
+ * 鍑虹珯淇℃伅鎺ュ彛
  */
 public interface OutboundMessage {
 

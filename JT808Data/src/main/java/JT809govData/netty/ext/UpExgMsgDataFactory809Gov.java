@@ -9,7 +9,7 @@ import JT809govData.model.InboundMessageHandler809Gov;
 import JT809govData.netty.ext.UpExgMsgHandler809Gov;
 
 /**
- * ÏûÏ¢¹¤³§
+ * æ¶ˆæ¯å·¥å‚
  * @author Administrator
  *
  */
@@ -30,7 +30,7 @@ public class UpExgMsgDataFactory809Gov {
 	}
 
 	/**
-	 * ²úÆ·±í
+	 * äº§å“è¡¨
 	 */
 	private Map<Integer, Class<? extends UpExgMsgDataHandler809Gov>> handlerMap = new HashMap<Integer, Class<? extends UpExgMsgDataHandler809Gov>>() {
 
@@ -40,7 +40,7 @@ public class UpExgMsgDataFactory809Gov {
 	};
 
 	/**
-	 * Éú²ú¾ßÌåÏûÏ¢´¦ÀíÂß¼­
+	 * ç”Ÿäº§å…·ä½“æ¶ˆæ¯å¤„ç†é€»è¾‘
 	 * @param messageId
 	 * @return
 	 */
