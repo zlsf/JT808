@@ -1,9 +1,6 @@
 
 package customer.server.process.msg.detail;
 
-import java.nio.ByteBuffer;
-
-import Utils.ByteArrayUtil;
 import customer.server.model.PackData;
 import customer.server.model.Session;
 import customer.server.model.SessionManager;
