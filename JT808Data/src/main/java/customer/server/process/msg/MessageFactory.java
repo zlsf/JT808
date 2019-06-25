@@ -9,6 +9,7 @@ import com.kj.datacenter.core.Constant;
 
 import customer.server.model.PackData;
 import customer.server.process.msg.detail.HeartBitMessage;
+import customer.server.process.msg.detail.LoginMessage;
 
 /**
  * 锟斤拷息锟斤拷锟斤拷
@@ -39,7 +40,7 @@ public class MessageFactory {
 
 		{
 			put(Constant.HRAET_BIT, HeartBitMessage.class);
-			put(Constant.LOGIN, HeartBitMessage.class);
+			put(Constant.LOGIN, LoginMessage.class);
 		}
 	};
 

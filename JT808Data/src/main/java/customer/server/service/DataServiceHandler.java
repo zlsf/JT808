@@ -35,13 +35,13 @@ public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
 	Session session = Session.buildSession(ctx.channel());
 	SessionManager.getInstance().put(session.getId(), session);
-	log.debug("收到连接: {}", session);
+	log.info("收到连接: {}", session);
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
 	Session session = removeSession(Session.buildId(ctx.channel()));
-	log.debug("断开连接: {}", session);
+	log.info("断开连接: {}", session);
     }
 
     @Override
