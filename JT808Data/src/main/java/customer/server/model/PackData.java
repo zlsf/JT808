@@ -52,8 +52,5 @@ public class PackData {
 		}
 	}
 
-	public String getData() {
-		return this.message.getData();
-	}
-
+	
 }

@@ -122,6 +122,7 @@ encoding//src/main/java/customer/server/model/SessionManager.java=UTF-8
 encoding//src/main/java/customer/server/process/MessageSender.java=UTF-8
 encoding//src/main/java/customer/server/process/msg/MessageFactory.java=UTF-8
 encoding//src/main/java/customer/server/process/msg/detail/HeartBitMessage.java=UTF-8
+encoding//src/main/java/customer/server/process/msg/detail/LoginMessage.java=UTF-8
 encoding//src/main/java/customer/server/service/DataServer.java=UTF-8
 encoding//src/main/java/customer/server/service/DataServiceHandler.java=UTF-8
 encoding/<project>=UTF-8

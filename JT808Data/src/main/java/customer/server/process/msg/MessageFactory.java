@@ -38,7 +38,8 @@ public class MessageFactory {
 	private Map<Integer, Class<? extends AbstractMessage>> dic = new HashMap<Integer, Class<? extends AbstractMessage>>() {
 
 		{
-			put(Constant.Heart_bit, HeartBitMessage.class);
+			put(Constant.HRAET_BIT, HeartBitMessage.class);
+			put(Constant.LOGIN, HeartBitMessage.class);
 		}
 	};
 

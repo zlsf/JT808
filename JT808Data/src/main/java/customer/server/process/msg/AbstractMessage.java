@@ -22,13 +22,6 @@ public abstract class AbstractMessage {
 
 	public abstract void dealMsg();
 
-	protected String getDataString() {
-		try {
-			return this.data.getData();
-		} catch (Exception ex) {
-			return "";
-		}
-	}
 
 	public Channel getChannel() {
 		try {
