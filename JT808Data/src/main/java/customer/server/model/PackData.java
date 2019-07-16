@@ -1,5 +1,6 @@
 package customer.server.model;
 
+import com.alibaba.fastjson.JSON;
 import com.kj.datacenter.msg.BaseMessage;
 
 import io.netty.channel.Channel;
@@ -50,6 +51,20 @@ public class PackData {
 	} catch (Exception ex) {
 	    return "";
 	}
+    }
+    
+    private String json;
+
+    public void setJson(String json) {
+        this.json = json;
+    }
+    
+    public <T extends BaseMessage> T getEntity(Class<T> clazz)
+    {
+	if(null==json||null==clazz)
+	    return null;
+	
+	return JSON.parseObject(this.json, clazz);	
     }
 
 }

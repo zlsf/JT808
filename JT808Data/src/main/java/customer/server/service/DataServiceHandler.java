@@ -74,6 +74,7 @@ public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
 		PackData packet = PacketCodec.convertToBaseMessageVO(json);
 		if (packet != null) {
 		    packet.setChannel(ctx.channel());
+		    packet.setJson(json);
 		    this.processPacketData(packet);
 		}
 
