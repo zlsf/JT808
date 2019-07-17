@@ -26,6 +26,8 @@ public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
     private final Logger log = LoggerFactory.getLogger(DataServiceHandler.class);
 
     private ExecutorService taskExecutor = Executors.newCachedThreadPool();
+    private final Object locker = new Object();
+    private volatile long count = 0;
 
     public DataServiceHandler() {
 
@@ -62,6 +64,10 @@ public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
 	log.info("channelRead0......");
 	if (buf.readableBytes() <= 0)
 	    return;
+
+	synchronized (locker) {
+	    this.count++;
+	}
 
 	byte[] bs = new byte[buf.readableBytes()];
 	buf.readBytes(bs);
@@ -105,5 +111,9 @@ public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
 	SessionManager.getInstance().removeBySessionId(session.getId());
 	return session;
+    }
+
+    public long getCount() {
+	return this.count;
     }
 }
