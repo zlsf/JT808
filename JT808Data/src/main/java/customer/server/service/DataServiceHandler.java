@@ -1,11 +1,16 @@
 
 package customer.server.service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.kj.datacenter.core.Constant;
 
 import customer.server.model.PackData;
 import customer.server.model.Session;
@@ -59,16 +64,15 @@ public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
 	}
     }
 
+    private List<Integer> list = Arrays.asList(new Integer[] { Constant.LOGIN, Constant.HRAET_BIT });
+
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, ByteBuf buf) throws Exception {
 	log.info("channelRead0......");
 	if (buf.readableBytes() <= 0)
 	    return;
 
-	synchronized (locker) {
-	    this.count++;
-	}
-
+	
 	byte[] bs = new byte[buf.readableBytes()];
 	buf.readBytes(bs);
 
@@ -78,6 +82,11 @@ public class DataServiceHandler extends SimpleChannelInboundHandler<ByteBuf> {
 		String json = new String(bs, "UTF-8");
 		log.info(json);
 		PackData packet = PacketCodec.convertToBaseMessageVO(json);
+		synchronized (locker) {
+		    if(!list.contains(packet.getMessageId()))
+		    this.count++;
+		}
+
 		if (packet != null) {
 		    packet.setChannel(ctx.channel());
 		    packet.setJson(json);

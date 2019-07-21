@@ -1,6 +1,5 @@
 package customer.server.process.msg.detail;
 
-import com.kj.datacenter.msg.TestMessage;
 import com.kj.datacenter.msg.ZLSFTest;
 
 import customer.server.model.PackData;
